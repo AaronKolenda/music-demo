@@ -1,0 +1,22 @@
+table, td, tr {
+  border: 1px solid black;
+}
+
+td {
+  width: 100px;
+  height: 20px;
+}
+
+.col1 {
+  width: 20px;
+}
+
+.selected {
+  background-color: blue;
+}
+
+.canvas {
+	margin-top: 40px;
+	margin: auto;
+	text-align: center;
+}
