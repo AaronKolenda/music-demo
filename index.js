@@ -1,10 +1,43 @@
-    var noteData = [];
+    //var noteData = [];
+   
+$(document).on("ready", function(){
+ var $td = $("#startRow");
 
-$(document).ready(function(){
+
+      var playLine = function() {
+        //console.log($td[0].nextElementSibling);
+
+        if ($td[0].nextElementSibling === null) {
+          if ($td.hasClass('selected')) {
+          console.log("$td has selected class");
+          }
+          else {console.log("$td doesn't have selected class")
+          }
+          console.log("it stopped")
+          window.clearInterval(intervalID);
+          return;
+        }
+
+        if ($td.next()[0].nodeName === 'TD') {
+          //console.log("it stopp");
+          if ($td.hasClass('selected')) {
+          console.log("$td has selected class");
+          }
+          else {console.log("$td doesn't have selected class")
+          }
+          $td = $td.next()
+        //console.log($td);
+        }  
+      }
+
+
+var intervalID = setInterval(playLine, 1000);
+
+  
   $('td').click(function() {
     $(this).toggleClass('selected');
   });
-  
+  /*
   $('#half').click(function() {
 
     $('.selected').attr('colspan','2');
@@ -92,43 +125,15 @@ $(document).ready(function(){
   // Render voice
   voice.draw(ctx, stave);
 
-  });
+  });*/
+
+        });
+
+      
 
 
 
 
 
-// Create the notes
-  /*var notes = [
-    // A quarter-note C.
-    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "q" }),
 
-    // A quarter-note D.
-    new Vex.Flow.StaveNote({ keys: ["d/4"], duration: "q" }),
 
-    // A quarter-note rest. Note that the key (b/4) specifies the vertical
-    // position of the rest.
-    new Vex.Flow.StaveNote({ keys: ["b/4"], duration: "qr" }),
-
-    // A C-Major chord.
-    new Vex.Flow.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "q" })
-  ];
-
-  // Create a voice in 4/4
-  var voice = new Vex.Flow.Voice({
-    num_beats: 4,
-    beat_value: 4,
-    resolution: Vex.Flow.RESOLUTION
-  });
-
-  // Add notes to voice
-  voice.addTickables(noteData);
-
-  // Format and justify the notes to 500 pixels
-  var formatter = new Vex.Flow.Formatter().
-    joinVoices([voice]).format([voice], 500);
-
-  // Render voice
-  voice.draw(ctx, stave);*/
-
-   });
