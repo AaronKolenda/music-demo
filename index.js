@@ -49,6 +49,8 @@ $(document).on("ready", function(){
         if (currentTD[0].nextElementSibling === null) {
           if (currentTD.hasClass('selected')) {
           console.log("last td, $td has selected class");
+          currentTD.addClass('highlight');
+          setTimeout(turnOffHighlight, 300, currentTD);
           }
           else {console.log("last td, $td doesn't have selected class")
           }
@@ -60,6 +62,8 @@ $(document).on("ready", function(){
         if (currentTD.next()[0].nodeName === 'TD') {
           if (currentTD.hasClass('selected')) {
           console.log("$td has selected class");
+          currentTD.addClass('highlight');
+          setTimeout(turnOffHighlight, 300, currentTD);
           }
           else {console.log("$td doesn't have selected class")
           }
@@ -132,6 +136,10 @@ rowIDs.push(bassID);*/
     }
 
   });
+
+  var turnOffHighlight = function(td) {
+    td.removeClass('highlight');
+  }
 
 
   

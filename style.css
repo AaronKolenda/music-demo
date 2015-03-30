@@ -19,6 +19,10 @@ td {
   background-color: blue;
 }
 
+.highlight {
+	background-color: orange;
+}
+
 .canvas {
 	margin-top: 40px;
 	margin: auto;
