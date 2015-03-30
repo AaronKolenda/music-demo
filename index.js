@@ -1,37 +1,97 @@
     //var noteData = [];
    
 $(document).on("ready", function(){
- var $td = $("#startRow");
+  var $crash = $("#crash");
+  var $ride = $("#ride");
+  var $openHH = $("#openHH");
+  var $closedHH = $("#closedHH");
+  var $smallTom = $("#small-tom");
+  var $snare = $("#snare");
+  var $middleTom = $("#middle-tom");
+  var $floorTom = $("#floor-tom");
+  var $HHFoot = $("#HHFoot");
+  var $bass = $("#bass");
+
+ var rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+ 
+      /*var playLine = function(row) { 
+        while (row[0].nextElementSibling !== null) {
+          setTimeout(checkSelected, 1000, row);
+          row = row.next();
+        }
+        setTimeout(playNote, 1000, row); 
+      }*/
 
 
-      var playLine = function() {
-        //console.log($td[0].nextElementSibling);
-
-        if ($td[0].nextElementSibling === null) {
-          if ($td.hasClass('selected')) {
-          console.log("$td has selected class");
+      var playNote = function(row) {
+       
+          if (row.hasClass('selected')) {
+          console.log("last td, $td has selected class");
           }
-          else {console.log("$td doesn't have selected class")
+          else {console.log("last td, $td doesn't have selected class")
           }
           console.log("it stopped")
-          window.clearInterval(intervalID);
+          return;
+      
+      }
+
+      var checkSelected = function(row) {
+        if (row.hasClass('selected')) {
+          console.log("$td has selected class");
+          }
+          else {
+            console.log("$td doesn't have selected class")
+          }
+      }
+
+      var playLine = function(currentTD, originalTD, rowID, tempNum) {
+          currentTD = temp[tempNum];
+        if (currentTD[0].nextElementSibling === null) {
+          if (currentTD.hasClass('selected')) {
+          console.log("last td, $td has selected class");
+          }
+          else {console.log("last td, $td doesn't have selected class")
+          }
+          console.log("it reached the end")
+          //window.clearInterval(rowID);
+          temp[tempNum] = originalTD;
           return;
         }
 
-        if ($td.next()[0].nodeName === 'TD') {
-          //console.log("it stopp");
-          if ($td.hasClass('selected')) {
+        if (currentTD.next()[0].nodeName === 'TD') {
+          if (currentTD.hasClass('selected')) {
           console.log("$td has selected class");
           }
           else {console.log("$td doesn't have selected class")
           }
-          $td = $td.next()
-        //console.log($td);
+          temp[tempNum] = currentTD.next();
         }  
       }
+      var temp = rows.slice(0);
+      //console.log(rows);
+      //console.log(temp);
 
 
-var intervalID = setInterval(playLine, 1000);
+      //playLine(rows[0]);
+
+//var rowIDs = [crashID, rideID, openHHID, closedHHID, smallTomID, snareID, middleTomID, floorTomID, hhFootID, bassID];
+
+  var crashID = setInterval(function(){playLine(rows[0], rows[0], crashID, 0)}, 1000);
+
+
+//var crashID = setInterval(function(){playLine(rows[0], crashID, 0)}, 1000);
+//var rideID = setInterval(function(){playLine(rows[1], rideID, 1)}, 1000);
+
+/*var rideID = setInterval(playLine(rows[1], rowIDs[1]), 1000);
+var openHHID = setInterval(playLine(rows[2], rowIDs[2]), 1000);
+var closedHHID = setInterval(playLine(rows[3], rowIDs[3]), 1000);
+var smallTomID = setInterval(playLine(rows[4], rowIDs[4]), 1000);
+var snareID = setInterval(playLine(rows[5], rowIDs[5]), 1000);
+var middleTomID = setInterval(playLine(rows[6], rowIDs[6]), 1000);
+var floorTomID = setInterval(playLine(rows[7], rowIDs[7]), 1000);
+var hhFootID = setInterval(playLine(rows[8], rowIDs[8]), 1000);
+var bassID = setInterval(playLine(rows[9], rowIDs[9]), 1000);*/
+
 
   
   $('td').click(function() {

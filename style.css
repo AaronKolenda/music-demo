@@ -3,12 +3,16 @@ table, td, tr {
 }
 
 td {
-  width: 100px;
-  height: 20px;
+  width: 25px;
+  height: 10px;
 }
 
 .col1 {
-  width: 20px;
+  width: 100px;
+}
+
+.beat-divide {
+	border-right: 4px solid red;
 }
 
 .selected {
