@@ -50,7 +50,7 @@ $(document).on("ready", function(){
           if (currentTD.hasClass('selected')) {
           console.log("last td, $td has selected class");
           currentTD.addClass('highlight');
-          setTimeout(turnOffHighlight, 300, currentTD);
+          setTimeout(turnOffHighlight, 200, currentTD);
           }
           else {console.log("last td, $td doesn't have selected class")
           }
@@ -63,7 +63,7 @@ $(document).on("ready", function(){
           if (currentTD.hasClass('selected')) {
           console.log("$td has selected class");
           currentTD.addClass('highlight');
-          setTimeout(turnOffHighlight, 300, currentTD);
+          setTimeout(turnOffHighlight, 200, currentTD);
           }
           else {console.log("$td doesn't have selected class")
           }
@@ -97,26 +97,26 @@ var play = function() {
     rowIDs[element] = setInterval(function(){playLine(rows[element], rows[element], element)}, 1000);
   })*/ 
 
-    crashID = setInterval(function(){playLine(rows[0], rows[0], 0)}, 1000);
-/*var rideID = setInterval(function(){playLine(rows[1], rows[1], 1)}, 1000);
-var openHHID = setInterval(playLine(rows[2], rows[2], 2), 1000);
-var closedHHID = setInterval(playLine(rows[3], rows[3], 3), 1000);
-var smallTomID = setInterval(playLine(rows[4], rows[4], 5), 1000);
-var snareID = setInterval(playLine(rows[5], rows[5], 5), 1000);
-var middleTomID = setInterval(playLine(rows[6], rows[6], 6), 1000);
-var floorTomID = setInterval(playLine(rows[7], rows[7], 7), 1000);
-var hhFootID = setInterval(playLine(rows[8], rows[8], 8), 1000);
-var bassID = setInterval(playLine(rows[9], rows[9], 9), 1000);*/
-rowIDs.push(crashID);
-/*rowIDs.push(rideID);
-rowIDs.push(openHHID);
-rowIDs.push(closedHHID);
-rowIDs.push(smallTomID);
-rowIDs.push(snareID);
-rowIDs.push(middleTomID);
-rowIDs.push(floorTomID);
-rowIDs.push(hhFootID);
-rowIDs.push(bassID);*/
+    crashID = setInterval(function(){playLine(rows[0], rows[0], 0)}, 500);
+    rideID = setInterval(function(){playLine(rows[1], rows[1], 1)}, 500);
+    openHHID = setInterval(function(){playLine(rows[2], rows[2], 2)}, 500);
+    closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3)}, 500);
+    smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4)}, 500);
+    snareID = setInterval(function(){playLine(rows[5], rows[5], 5)}, 500);
+    middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6)}, 500);
+    floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7)}, 500);
+    hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, 500);
+    bassID = setInterval(function(){playLine(rows[9], rows[9], 9)}, 500);
+    rowIDs.push(crashID);
+    rowIDs.push(rideID);
+    rowIDs.push(openHHID);
+    rowIDs.push(closedHHID);
+    rowIDs.push(smallTomID);
+    rowIDs.push(snareID);
+    rowIDs.push(middleTomID);
+    rowIDs.push(floorTomID);
+    rowIDs.push(hhFootID);
+    rowIDs.push(bassID);
 
   currentlyPlaying = true;
 
