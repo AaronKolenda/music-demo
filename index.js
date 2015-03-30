@@ -44,7 +44,7 @@ $(document).on("ready", function(){
           }
       }
 
-      var playLine = function(currentTD, originalTD, rowID, tempNum) {
+      var playLine = function(currentTD, originalTD, tempNum) {
           currentTD = temp[tempNum];
         if (currentTD[0].nextElementSibling === null) {
           if (currentTD.hasClass('selected')) {
@@ -53,7 +53,6 @@ $(document).on("ready", function(){
           else {console.log("last td, $td doesn't have selected class")
           }
           console.log("it reached the end")
-          //window.clearInterval(rowID);
           temp[tempNum] = originalTD;
           return;
         }
@@ -73,24 +72,66 @@ $(document).on("ready", function(){
 
 
       //playLine(rows[0]);
+var crashID;
+var rideID;
+var openHHID;
+var closedHHID;
+var smallTomID;
+var snareID;
+var middleTomID;
+var floorTomID;
+var hhFootID;
+var bassID;
 
-//var rowIDs = [crashID, rideID, openHHID, closedHHID, smallTomID, snareID, middleTomID, floorTomID, hhFootID, bassID];
 
-  var crashID = setInterval(function(){playLine(rows[0], rows[0], crashID, 0)}, 1000);
+var rowIDs = [];
 
+var currentlyPlaying = false;
+var play = function() {
+  //doesn't work so I'm writing it all out seperatly below
+  /*_.each(rowIDs, function(element){
+    rowIDs[element] = setInterval(function(){playLine(rows[element], rows[element], element)}, 1000);
+  })*/ 
 
-//var crashID = setInterval(function(){playLine(rows[0], crashID, 0)}, 1000);
-//var rideID = setInterval(function(){playLine(rows[1], rideID, 1)}, 1000);
+    crashID = setInterval(function(){playLine(rows[0], rows[0], 0)}, 1000);
+/*var rideID = setInterval(function(){playLine(rows[1], rows[1], 1)}, 1000);
+var openHHID = setInterval(playLine(rows[2], rows[2], 2), 1000);
+var closedHHID = setInterval(playLine(rows[3], rows[3], 3), 1000);
+var smallTomID = setInterval(playLine(rows[4], rows[4], 5), 1000);
+var snareID = setInterval(playLine(rows[5], rows[5], 5), 1000);
+var middleTomID = setInterval(playLine(rows[6], rows[6], 6), 1000);
+var floorTomID = setInterval(playLine(rows[7], rows[7], 7), 1000);
+var hhFootID = setInterval(playLine(rows[8], rows[8], 8), 1000);
+var bassID = setInterval(playLine(rows[9], rows[9], 9), 1000);*/
+rowIDs.push(crashID);
+/*rowIDs.push(rideID);
+rowIDs.push(openHHID);
+rowIDs.push(closedHHID);
+rowIDs.push(smallTomID);
+rowIDs.push(snareID);
+rowIDs.push(middleTomID);
+rowIDs.push(floorTomID);
+rowIDs.push(hhFootID);
+rowIDs.push(bassID);*/
 
-/*var rideID = setInterval(playLine(rows[1], rowIDs[1]), 1000);
-var openHHID = setInterval(playLine(rows[2], rowIDs[2]), 1000);
-var closedHHID = setInterval(playLine(rows[3], rowIDs[3]), 1000);
-var smallTomID = setInterval(playLine(rows[4], rowIDs[4]), 1000);
-var snareID = setInterval(playLine(rows[5], rowIDs[5]), 1000);
-var middleTomID = setInterval(playLine(rows[6], rowIDs[6]), 1000);
-var floorTomID = setInterval(playLine(rows[7], rowIDs[7]), 1000);
-var hhFootID = setInterval(playLine(rows[8], rowIDs[8]), 1000);
-var bassID = setInterval(playLine(rows[9], rowIDs[9]), 1000);*/
+  currentlyPlaying = true;
+
+}
+
+  $('#play-pause').click(function() {
+    if (currentlyPlaying === true) {
+      _.each(rowIDs, function(element) {
+        console.log(element);  
+        window.clearInterval(element);
+      });
+      currentlyPlaying = false;
+      return;
+    }
+    else {
+      play();
+    }
+
+  });
 
 
   
