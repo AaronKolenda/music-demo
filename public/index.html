@@ -206,68 +206,7 @@
     </table>
   </div>
 
-  <button id="play-pause">Play</button>
+  <button id="play-pause">Play/Pause</button>
 
-  <audio src="samples/crash.mp3" preload="auto" id="crash-audio"></audio>
-  <audio src="samples/hihat.mp3" preload="auto" id="closedHH-audio"></audio>
-  <audio src="samples/kick.mp3" preload="auto" id="bass-audio"></audio>
-  <audio src="samples/openhat.mp3" preload="auto" id="openHH-audio"></audio>
-  <audio src="samples/ride.mp3" preload="auto" id="ride-audio"></audio>
-  <audio src="samples/snare.mp3" preload="auto" id="snare-audio"></audio>
-  <audio src="samples/smalltom.mp3" preload="auto" id="small-tom-audio"></audio>
-  <audio src="samples/middletom.mp3" preload="auto" id="middle-tom-audio"></audio>
-  <audio src="samples/floortom.mp3" preload="auto" id="floor-tom-audio"></audio>
-
-
-  <button id="half">Half Note</button>
-
-  <button id="whole">Whole Note</button>
-  <button id="half">Half Note</button>
-  <button id="quarter">Quarter Note</button>
-  <button id="eighth">Eighth Note</button>
-  <button id="sixteenth">Sixteenth Note</button>
-
-  <div class="canvas">
-    <canvas id="music-canvas" width="700" height="100"></canvas>
-  </div>
-
-  <div class="note-input">Note/Chord: 
-    <select id="letter">
-      <option value="a">A</option>
-      <option value="b">B</option>
-      <option value="c">C</option>
-      <option value="d">D</option>
-      <option value="e">E</option>
-      <option value="f">F</option>
-      <option value="g">G</option>
-    </select>
-
-    <select id="accidental">
-      <option value="none">None</option>
-      <option value="sharp">Sharp</option>
-      <option value="doubleSharp">Double Sharp</option>
-      <option value="natural">Natural</option>
-      <option value="flat">Flat</option>
-      <option value="doubleFlat">Double Flat</option>
-    </select>
-
-    <select id="octave">
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
-
-    <select id="duration">
-      <option value="w">Whole</option>
-      <option value="h">Half</option>
-      <option value="q">Quarter</option>
-      <option value="8">Eighth</option>
-      <option value="16">Sixteenth</option>
-    </select>
-  
-    <button id="submit-note">Submit Note</button>
-
-    <button id="submit-voice">Submit Voice</button>
+  Tempo: <input type="number" value="100" id="tempo" min="1" max="400"/> bpm
 

@@ -59,16 +59,16 @@
     rowIDs[element] = setInterval(function(){playLine(rows[element], rows[element], element)}, 1000);
   })*/ 
 
-    crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, 100);
-    rideID = setInterval(function(){playLine(rows[1], rows[1], 1, rideAudio)}, 100);
-    openHHID = setInterval(function(){playLine(rows[2], rows[2], 2, openHHAudio)}, 100);
-    closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3, closedHHAudio)}, 100);
-    smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4, smallTomAudio)}, 100);
-    snareID = setInterval(function(){playLine(rows[5], rows[5], 5, snareAudio)}, 100);
-    middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6, middleTomAudio)}, 100);
-    floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7, floorTomAudio)}, 100);
-    hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, 100);
-    bassID = setInterval(function(){playLine(rows[9], rows[9], 9, bassAudio)}, 100);
+    crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, calculateTempo());
+    rideID = setInterval(function(){playLine(rows[1], rows[1], 1, rideAudio)}, calculateTempo());
+    openHHID = setInterval(function(){playLine(rows[2], rows[2], 2, openHHAudio)}, calculateTempo());
+    closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3, closedHHAudio)}, calculateTempo());
+    smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4, smallTomAudio)}, calculateTempo());
+    snareID = setInterval(function(){playLine(rows[5], rows[5], 5, snareAudio)}, calculateTempo());
+    middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6, middleTomAudio)}, calculateTempo());
+    floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7, floorTomAudio)}, calculateTempo());
+    hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, calculateTempo());
+    bassID = setInterval(function(){playLine(rows[9], rows[9], 9, bassAudio)}, calculateTempo());
 
     rowIDs.push(crashID);
     rowIDs.push(rideID);
@@ -86,9 +86,13 @@
   }
 
   $('#play-pause').click(function() {
+    if ($('#tempo').val() < 0 || $('#tempo').val() > 400) {
+      alert("you must chose a tempo in between 1 and 400");
+      return;
+    }
+
     if (currentlyPlaying === true) {
       _.each(rowIDs, function(element) {
-        console.log(element);  
         window.clearInterval(element);
       });
       currentlyPlaying = false;
@@ -104,7 +108,15 @@
     $(this).toggleClass('selected');
   });
 
+
 });
+
+  var calculateTempo = function() {
+    var bpm = $('#tempo').val();
+    var sixteenthPerMin = bpm * 4;
+    var millisecondsApart = 1000 * (60/sixteenthPerMin);
+    return millisecondsApart;
+  }
 
 var turnOffHighlight = function(td) {
   td.removeClass('highlight');
