@@ -2,9 +2,14 @@ table, td, tr {
   border: 1px solid black;
 }
 
+table {
+	display: inline-block;
+	vertical-align: top;
+}
+
 td {
   width: 25px;
-  height: 10px;
+  height: 16px;
 }
 
 .col1 {
