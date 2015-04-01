@@ -115,28 +115,55 @@
 
 });
 
-  var save = function() {
-    var crashNotes = [];
-    var tdsArray = $("#crash-row td");
-    _.each(tdsArray, function(element) {
-      element = $(element);
-      console.log(element[0].className);
-      if (element[0].className === 'selected') {
-        crashNotes.push(true);
-      }
-      else {
-        crashNotes.push(false);
-      }
-    })
-    console.log(crashNotes);
-  }
+var save = function() {
+  var notes = {};
+  notes.crashNotes = [];
+  notes.rideNotes = [];
+  notes.openHHNotes = [];
+  notes.closedHHNotes = [];
+  notes.smallTomNotes = [];
+  notes.snareNotes = [];
+  notes.middleTomNotes = [];
+  notes.floorTomNotes = [];
+  notes.footHH = [];
+  notes.bassNotes = [];
 
-  var calculateTempo = function() {
-    var bpm = $('#tempo').val();
-    var sixteenthPerMin = bpm * 4;
-    var millisecondsApart = 1000 * (60/sixteenthPerMin);
-    return millisecondsApart;
-  }
+  var tableRows = $("#beat tr");
+  //console.log(tableRows);
+
+    var counter = 0;
+  _.each(notes, function(eacharray, index) {
+    var tdsArray = $(tableRows[counter]);
+    counter++
+    //console.log(tdsArray);
+
+      _.each(tdsArray[0].children, function(element) {
+        $element = $(element);
+        //console.log($element);
+        if (/*$element[0].className === 'selected'*/$element.hasClass('selected') ) {
+          eacharray.push(true);
+        }
+        else {
+          eacharray.push(false);
+        }
+      })
+    //console.log(eacharray);
+  })
+
+  console.log(notes);
+}
+
+var load = function() {
+
+
+}
+
+var calculateTempo = function() {
+  var bpm = $('#tempo').val();
+  var sixteenthPerMin = bpm * 4;
+  var millisecondsApart = 1000 * (60/sixteenthPerMin);
+  return millisecondsApart;
+}
 
 var turnOffHighlight = function(td) {
   td.removeClass('highlight');
