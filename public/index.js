@@ -35,18 +35,7 @@
           temp[tempNum] = currentTD.next();
         }  
       }
-      var temp = rows.slice(0);
-
-  var crashID;
-  var rideID;
-  var openHHID;
-  var closedHHID;
-  var smallTomID;
-  var snareID;
-  var middleTomID;
-  var floorTomID;
-  var hhFootID;
-  var bassID;
+  var temp = rows.slice(0);
 
   var rowIDs = [];
 
@@ -128,28 +117,26 @@ var save = function() {
   notes.footHH = [];
   notes.bassNotes = [];
 
+
   var tableRows = $("#beat tr");
-  //console.log(tableRows);
 
     var counter = 0;
   _.each(notes, function(eacharray, index) {
     var tdsArray = $(tableRows[counter]);
     counter++
-    //console.log(tdsArray);
 
       _.each(tdsArray[0].children, function(element) {
         $element = $(element);
-        //console.log($element);
-        if (/*$element[0].className === 'selected'*/$element.hasClass('selected') ) {
+        if ($element.hasClass('selected') ) {
           eacharray.push(true);
         }
         else {
           eacharray.push(false);
         }
-      })
-    //console.log(eacharray);
-  })
-
+      });
+  });
+  notes.tempo = $('#tempo').val();
+  notes.beatName = $('#name').val();
   console.log(notes);
 }
 
