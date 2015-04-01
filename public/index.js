@@ -108,8 +108,28 @@
     $(this).toggleClass('selected');
   });
 
+  $('#save').click(function() {
+    save();
+  });
+
 
 });
+
+  var save = function() {
+    var crashNotes = [];
+    var tdsArray = $("#crash-row td");
+    _.each(tdsArray, function(element) {
+      element = $(element);
+      console.log(element[0].className);
+      if (element[0].className === 'selected') {
+        crashNotes.push(true);
+      }
+      else {
+        crashNotes.push(false);
+      }
+    })
+    console.log(crashNotes);
+  }
 
   var calculateTempo = function() {
     var bpm = $('#tempo').val();

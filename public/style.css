@@ -12,6 +12,10 @@ td {
 }
 
 .beat-divide {
+	border-right: 4px solid darkred;
+}
+
+.measure-divide {
 	border-right: 4px solid red;
 }
 
