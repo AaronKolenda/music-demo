@@ -93,8 +93,26 @@
 
   });
 
-  $('td').click(function() {
+  var mousedown = false;
+
+  $('td').mousedown(function(event) {
+    event.preventDefault();
     $(this).toggleClass('selected');
+    mousedown = true;
+    console.log(mousedown);
+  });
+
+  $('td').mouseover(function(event) {
+    event.preventDefault();
+    if (mousedown) {
+      $(this).toggleClass('selected');
+    }
+  });
+
+  $('html').mouseup(function(event) {
+    event.preventDefault();
+    mousedown = false;
+    console.log(mousedown);
   });
 
   $('#save').click(function() {
