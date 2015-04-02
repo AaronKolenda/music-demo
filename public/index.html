@@ -4,9 +4,12 @@
     <title>Music Notetaking Demo</title>
     <link href="style.css" type="text/css" rel="stylesheet"/>
     <script src="libs/jquery.js"></script>
+    <script src="libs/handlebars.js"></script>
     <script src="libs/underscore.js"></script>
+    <script src="libs/backbone.js"></script>
     <script src="libs/howl.js"></script>
     <script src="index.js"></script>
+    <script src="models-views.js"></script>
   </head>
 
   <body>
@@ -440,4 +443,151 @@
   Tempo: <input type="number" value="100" id="tempo" min="1" max="400"/> bpm
 
    <button id="save">Save Beat</button>
+   <button id="load">Load Beat</button>
+
+   <div id="loaded-beat"></div>
+
+   <script type="x-handlebars-template" id="beat-template"> 
+
+   <input type="text" id="name" value="Name of Beat"/>
+    <div class="table-example">
+        
+    <table id="labels">
+        <tr>
+            <td class="label">Crash</td>
+        </tr>
+        <tr>
+            <td class="col1">Ride</td>
+        </tr>
+        <tr>
+            <td class="col1">Open Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Closed Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Small Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare</td>
+        </tr>
+        <tr>
+            <td class="col1">Middle Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Floor Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Hi-Hat Foot</td>
+        </tr>
+        <tr>
+            <td class="col1">Bass</td>
+        </tr>
+    </table>
+
+    
+       
+    <table id="beat">
+      <tr id="crash-row">
+        {{#each crashNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="ride-row">
+        {{#each rideNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="openHH-row">
+        {{#each openHHNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="closedHH-row">
+        {{#each closedHHNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="small-tom-row">
+        {{#each smallTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="snare-row">
+        {{#each snareNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="middle-tom-row">
+        {{#each middleTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="floor-tom-row">
+        {{#each floorTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="footHH-row">
+        {{#each footHH}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="bass-row">
+        {{#each bassNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+    </table>
+
+    <table id="labels">
+        <tr>
+            <td class="label">Crash</td>
+        </tr>
+        <tr>
+            <td class="col1">Ride</td>
+        </tr>
+        <tr>
+            <td class="col1">Open Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Closed Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Small Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare</td>
+        </tr>
+        <tr>
+            <td class="col1">Middle Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Floor Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Hi-Hat Foot</td>
+        </tr>
+        <tr>
+            <td class="col1">Bass</td>
+        </tr>
+    </table>
+  </div>
+
+  <button id="play-pause">Play/Pause</button>
+
+  Tempo: <input type="number" value="100" id="tempo" min="1" max="400"/> bpm
+
+   <button id="save">Save Beat</button>
+
+   </script>
 

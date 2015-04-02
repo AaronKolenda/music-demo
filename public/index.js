@@ -1,78 +1,23 @@
   $(document).on("ready", function(){
-  var $crash = $("#crash");
-  var $ride = $("#ride");
-  var $openHH = $("#openHH");
-  var $closedHH = $("#closedHH");
-  var $smallTom = $("#small-tom");
-  var $snare = $("#snare");
-  var $middleTom = $("#middle-tom");
-  var $floorTom = $("#floor-tom");
-  var $HHFoot = $("#HHFoot");
-  var $bass = $("#bass");
 
-  var rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+  getTemplates();
 
-      var playLine = function(currentTD, originalTD, tempNum, audio) {
-        currentTD = temp[tempNum];
-        if (currentTD[0].nextElementSibling === null) {
+   $crash = $("#crash");
+   $ride = $("#ride");
+   $openHH = $("#openHH");
+   $closedHH = $("#closedHH");
+   $smallTom = $("#small-tom");
+   $snare = $("#snare");
+   $middleTom = $("#middle-tom");
+   $floorTom = $("#floor-tom");
+   $HHFoot = $("#HHFoot");
+   $bass = $("#bass");
 
-          if (currentTD.hasClass('selected')) {
-          currentTD.addClass('highlight');
-          audio.play();
-          setTimeout(turnOffHighlight, 100, currentTD);
-          }
 
-          temp[tempNum] = originalTD;
-          return;
-        }
 
-        if (currentTD.next()[0].nodeName === 'TD') {
-          if (currentTD.hasClass('selected')) {
-          currentTD.addClass('highlight');
-          audio.play();
-          setTimeout(turnOffHighlight, 100, currentTD);
-          }
-          temp[tempNum] = currentTD.next();
-        }  
-      }
-  var temp = rows.slice(0);
-
-  var rowIDs = [];
-
-  var currentlyPlaying = false;
-
-  var play = function() {
-
-  //the following doesn't work so I'm writing it all out seperatly below
-  /*_.each(rowIDs, function(element){
-    rowIDs[element] = setInterval(function(){playLine(rows[element], rows[element], element)}, 1000);
-  })*/ 
-
-    crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, calculateTempo());
-    rideID = setInterval(function(){playLine(rows[1], rows[1], 1, rideAudio)}, calculateTempo());
-    openHHID = setInterval(function(){playLine(rows[2], rows[2], 2, openHHAudio)}, calculateTempo());
-    closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3, closedHHAudio)}, calculateTempo());
-    smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4, smallTomAudio)}, calculateTempo());
-    snareID = setInterval(function(){playLine(rows[5], rows[5], 5, snareAudio)}, calculateTempo());
-    middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6, middleTomAudio)}, calculateTempo());
-    floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7, floorTomAudio)}, calculateTempo());
-    hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, calculateTempo());
-    bassID = setInterval(function(){playLine(rows[9], rows[9], 9, bassAudio)}, calculateTempo());
-
-    rowIDs.push(crashID);
-    rowIDs.push(rideID);
-    rowIDs.push(openHHID);
-    rowIDs.push(closedHHID);
-    rowIDs.push(smallTomID);
-    rowIDs.push(snareID);
-    rowIDs.push(middleTomID);
-    rowIDs.push(floorTomID);
-    rowIDs.push(hhFootID);
-    rowIDs.push(bassID);
-
-    currentlyPlaying = true;
-
-  }
+   rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+   temp = rows.slice(0);
+      
 
   $('#play-pause').click(function() {
     if ($('#tempo').val() < 0 || $('#tempo').val() > 400) {
@@ -95,34 +40,42 @@
 
   var mousedown = false;
 
-  $('td').mousedown(function(event) {
+  $('td').on("mousedown", function(event) {
     event.preventDefault();
     $(this).toggleClass('selected');
     mousedown = true;
-    console.log(mousedown);
   });
 
-  $('td').mouseover(function(event) {
+  $('td').on("mouseover", function(event) {
     event.preventDefault();
     if (mousedown) {
       $(this).toggleClass('selected');
     }
   });
 
-  $('html').mouseup(function(event) {
+  $('html').on("mouseup", function(event) {
     event.preventDefault();
     mousedown = false;
-    console.log(mousedown);
+    if (savedBeat) {
+      savedBeat.mousedown = false;
+    }
   });
 
-  $('#save').click(function() {
+  $('#save').on("click", function() {
     save();
+  });
+
+  $('#load').on("click", function() {
+    load();
   });
 
 
 });
 
-var save = function() {
+var notesFromServer;
+var savedBeat;
+
+  var save = function() {
   var notes = {};
   notes.crashNotes = [];
   notes.rideNotes = [];
@@ -156,11 +109,18 @@ var save = function() {
   notes.tempo = $('#tempo').val();
   notes.beatName = $('#name').val();
   console.log(notes);
+  notesFromServer = notes;
+  savedBeat = new Beat(notes);
+  console.log(savedBeat);
 }
 
 var load = function() {
-
-
+  /*$("#loaded-beat").html("");
+  var newBeatView = new BeatView(savedBeat);
+  $("#loaded-beat").append(newBeatView.el);*/
+  $("body").html("");
+  var newBeatView = new BeatView(savedBeat);
+  $("body").append(newBeatView.el);
 }
 
 var calculateTempo = function() {
@@ -211,10 +171,120 @@ var snareAudio = new Howl({
   volume: 0.4
 });
 
-      
+var templates = {};
+
+var getTemplates = function(){
+
+  var beatString = $("#beat-template").text()
+  templates.beatInfo = Handlebars.compile(beatString);
+
+}
+
+  var $ride;
+  var $openHH;
+  var $closedHH;
+  var $smallTom;
+  var $snare;
+  var $middleTom;
+  var $floorTom;
+  var $HHFoot;
+  var $bass;
+  var rows;
 
 
+var playLine = function(currentTD, originalTD, tempNum, audio) {
+  currentTD = temp[tempNum];
+  console.log('in playLine, currentTD is ', currentTD);
+  if (currentTD[0].nextElementSibling === null) {
 
+    if (currentTD.hasClass('selected')) {
+    currentTD.addClass('highlight');
+    audio.play();
+    setTimeout(turnOffHighlight, 100, currentTD);
+    }
+
+    temp[tempNum] = originalTD;
+    return;
+  }
+
+  if (currentTD.next()[0].nodeName === 'TD') {
+    if (currentTD.hasClass('selected')) {
+    currentTD.addClass('highlight');
+    audio.play();
+    setTimeout(turnOffHighlight, 100, currentTD);
+    }
+    temp[tempNum] = currentTD.next();
+  }  
+}
+
+var temp;
+
+var rowIDs = [];
+
+var currentlyPlaying = false;
+
+var play = function() {
+
+ crash = $("#crash-row")[0].children[0];
+ $crash = $(crash);
+
+ ride = $("#crash-row")[0].children[0];
+ $ride = $(ride);
+
+ openHH = $("#crash-row")[0].children[0];
+ $openHH = $(openHH);
+
+ closedHH = $("#crash-row")[0].children[0];
+ $closedHH = $(closedHH);
+
+ smallTom = $("#crash-row")[0].children[0];
+ $smallTom = $(smallTom);
+
+ snare = $("#crash-row")[0].children[0];
+ $snare = $(snare);
+
+ middleTom = $("#crash-row")[0].children[0];
+ $middleTom = $(middleTom);
+
+ floorTom = $("#crash-row")[0].children[0];
+ $floorTom = $(floorTom);
+
+ HHFoot = $("#crash-row")[0].children[0];
+ $HHFoot = $(HHFoot);
+
+ bass = $("#crash-row")[0].children[0];
+ $bass = $(bass);
+
+   rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+   console.log(rows);
+   temp = rows.slice(0);
+
+  crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, calculateTempo());
+  rideID = setInterval(function(){playLine(rows[1], rows[1], 1, rideAudio)}, calculateTempo());
+  openHHID = setInterval(function(){playLine(rows[2], rows[2], 2, openHHAudio)}, calculateTempo());
+  closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3, closedHHAudio)}, calculateTempo());
+  smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4, smallTomAudio)}, calculateTempo());
+  snareID = setInterval(function(){playLine(rows[5], rows[5], 5, snareAudio)}, calculateTempo());
+  middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6, middleTomAudio)}, calculateTempo());
+  floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7, floorTomAudio)}, calculateTempo());
+  hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, calculateTempo());
+  bassID = setInterval(function(){playLine(rows[9], rows[9], 9, bassAudio)}, calculateTempo());
+
+  rowIDs.push(crashID);
+  rowIDs.push(rideID);
+  rowIDs.push(openHHID);
+  rowIDs.push(closedHHID);
+  rowIDs.push(smallTomID);
+  rowIDs.push(snareID);
+  rowIDs.push(middleTomID);
+  rowIDs.push(floorTomID);
+  rowIDs.push(hhFootID);
+  rowIDs.push(bassID);
+
+  currentlyPlaying = true;
+
+
+}
 
 
 
