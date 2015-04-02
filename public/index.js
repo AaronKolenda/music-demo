@@ -40,13 +40,13 @@
 
   var mousedown = false;
 
-  $('td').on("mousedown", function(event) {
+  $('#beat td').on("mousedown", function(event) {
     event.preventDefault();
     $(this).toggleClass('selected');
     mousedown = true;
   });
 
-  $('td').on("mouseover", function(event) {
+  $('#beat td').on("mouseover", function(event) {
     event.preventDefault();
     if (mousedown) {
       $(this).toggleClass('selected');
@@ -168,6 +168,10 @@ var smallTomAudio = new Howl({
 var snareAudio = new Howl({
   urls: ['samples/snare.mp3'],
   volume: 0.4
+});
+var footHHAudio = new Howl({
+  urls: ['samples/footHH.mp3'],
+  volume: 0.7
 });
 
 var templates = {};

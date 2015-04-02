@@ -17,8 +17,8 @@
 
   events: { "click #save": "save",
             "click #play-pause": "playBeat",
-            "mousedown td": "mouseDown",
-            "mouseover td": "mouseOver",
+            "mousedown #beat td": "mouseDown",
+            "mouseover #beat td": "mouseOver",
             "mouseup": "mouseUp"},
 
   tagName: "div",
