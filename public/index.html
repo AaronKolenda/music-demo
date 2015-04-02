@@ -449,7 +449,7 @@
 
    <script type="x-handlebars-template" id="beat-template"> 
 
-   <input type="text" id="name" value="Name of Beat"/>
+   <input type="text" id="name" value="{{beatName}}"/>
     <div class="table-example">
         
     <table id="labels">
@@ -585,7 +585,7 @@
 
   <button id="play-pause">Play/Pause</button>
 
-  Tempo: <input type="number" value="100" id="tempo" min="1" max="400"/> bpm
+  Tempo: <input type="number" value="{{tempo}}" id="tempo" min="1" max="400"/> bpm
 
    <button id="save">Save Beat</button>
 

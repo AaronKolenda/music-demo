@@ -76,42 +76,41 @@ var notesFromServer;
 var savedBeat;
 
   var save = function() {
-  var notes = {};
-  notes.crashNotes = [];
-  notes.rideNotes = [];
-  notes.openHHNotes = [];
-  notes.closedHHNotes = [];
-  notes.smallTomNotes = [];
-  notes.snareNotes = [];
-  notes.middleTomNotes = [];
-  notes.floorTomNotes = [];
-  notes.footHH = [];
-  notes.bassNotes = [];
+    var notes = {};
+    notes.crashNotes = [];
+    notes.rideNotes = [];
+    notes.openHHNotes = [];
+    notes.closedHHNotes = [];
+    notes.smallTomNotes = [];
+    notes.snareNotes = [];
+    notes.middleTomNotes = [];
+    notes.floorTomNotes = [];
+    notes.footHH = [];
+    notes.bassNotes = [];
 
 
-  var tableRows = $("#beat tr");
+    var tableRows = $("#beat tr");
 
-    var counter = 0;
-  _.each(notes, function(eacharray, index) {
-    var tdsArray = $(tableRows[counter]);
-    counter++
+      var counter = 0;
+    _.each(notes, function(eacharray, index) {
+      var tdsArray = $(tableRows[counter]);
+      counter++
 
-      _.each(tdsArray[0].children, function(element) {
-        $element = $(element);
-        if ($element.hasClass('selected') ) {
-          eacharray.push(true);
-        }
-        else {
-          eacharray.push(false);
-        }
-      });
-  });
-  notes.tempo = $('#tempo').val();
-  notes.beatName = $('#name').val();
-  console.log(notes);
-  notesFromServer = notes;
-  savedBeat = new Beat(notes);
-  console.log(savedBeat);
+        _.each(tdsArray[0].children, function(element) {
+          $element = $(element);
+          if ($element.hasClass('selected') ) {
+            eacharray.push(true);
+          }
+          else {
+            eacharray.push(false);
+          }
+        });
+    });
+    notes.tempo = $('#tempo').val();
+    notes.beatName = $('#name').val();
+    console.log(notes);
+    notesFromServer = notes;
+    savedBeat = new Beat(notes);
 }
 
 var load = function() {
@@ -194,13 +193,12 @@ var getTemplates = function(){
 
 var playLine = function(currentTD, originalTD, tempNum, audio) {
   currentTD = temp[tempNum];
-  console.log('in playLine, currentTD is ', currentTD);
   if (currentTD[0].nextElementSibling === null) {
 
     if (currentTD.hasClass('selected')) {
-    currentTD.addClass('highlight');
-    audio.play();
-    setTimeout(turnOffHighlight, 100, currentTD);
+      currentTD.addClass('highlight');
+      audio.play();
+      setTimeout(turnOffHighlight, 100, currentTD);
     }
 
     temp[tempNum] = originalTD;
@@ -208,10 +206,12 @@ var playLine = function(currentTD, originalTD, tempNum, audio) {
   }
 
   if (currentTD.next()[0].nodeName === 'TD') {
+
     if (currentTD.hasClass('selected')) {
-    currentTD.addClass('highlight');
-    audio.play();
-    setTimeout(turnOffHighlight, 100, currentTD);
+
+      currentTD.addClass('highlight');
+      audio.play();
+      setTimeout(turnOffHighlight, 100, currentTD);
     }
     temp[tempNum] = currentTD.next();
   }  
@@ -228,35 +228,34 @@ var play = function() {
  crash = $("#crash-row")[0].children[0];
  $crash = $(crash);
 
- ride = $("#crash-row")[0].children[0];
+ ride = $("#ride-row")[0].children[0];
  $ride = $(ride);
 
- openHH = $("#crash-row")[0].children[0];
+ openHH = $("#openHH-row")[0].children[0];
  $openHH = $(openHH);
 
- closedHH = $("#crash-row")[0].children[0];
+ closedHH = $("#closedHH-row")[0].children[0];
  $closedHH = $(closedHH);
 
- smallTom = $("#crash-row")[0].children[0];
+ smallTom = $("#small-tom-row")[0].children[0];
  $smallTom = $(smallTom);
 
- snare = $("#crash-row")[0].children[0];
+ snare = $("#snare-row")[0].children[0];
  $snare = $(snare);
 
- middleTom = $("#crash-row")[0].children[0];
+ middleTom = $("#middle-tom-row")[0].children[0];
  $middleTom = $(middleTom);
 
- floorTom = $("#crash-row")[0].children[0];
+ floorTom = $("#floor-tom-row")[0].children[0];
  $floorTom = $(floorTom);
 
- HHFoot = $("#crash-row")[0].children[0];
+ HHFoot = $("#footHH-row")[0].children[0];
  $HHFoot = $(HHFoot);
 
- bass = $("#crash-row")[0].children[0];
+ bass = $("#bass-row")[0].children[0];
  $bass = $(bass);
 
    rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
-   console.log(rows);
    temp = rows.slice(0);
 
   crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, calculateTempo());
