@@ -129,6 +129,10 @@ var Router = Backbone.Router.extend({
     "": "displayLanding",
     "user/:user_id": "showBeatsList",
     "user/:user_id/:beat_name": "showBeat",
+    "demos/latin": "displayLatin",
+    "demos/rock": "displayRock",
+    "demos/jazz": "displayJazz",
+    "demos/metal": "displayMetal",
   },
 
   displayLanding: function(){
@@ -163,8 +167,112 @@ var Router = Backbone.Router.extend({
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
+  },
 
+  displayLatin: function(){
+    $("#loaded-beat").html("");
+    var allNotes = {};
+    allNotes.rimshotNotes = [];
+    allNotes.cowbellNotes = [true, false, false, true,
+                          false, false, true, false,
+                          false, false, true, false,
+                          true, false, false, false,
+                          true, false, false, true,
+                          false, false, true, false,
+                          false, false, true, false,
+                          true, false, false, false];
+    allNotes.splashNotes = [];
+    allNotes.crashNotes = [];
+    allNotes.rideNotes = [];
+    allNotes.openHHNotes = [];
+    allNotes.closedHHNotes = [true, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, true, true,
+                          true, false, true, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, true, true];
+    allNotes.highTomNotes = [true, false, false, true,
+                          true, false, false, false,
+                          false, false, false, true,
+                          true, false, false, false,
+                          true, false, false, true,
+                          true, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false];
+    allNotes.smallTomNotes = [false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, true, false,
+                          false, false, false, false,
+                          false, false, false, false];
+    allNotes.snareNotes = [true, false, false, false,
+                          false, false, false, true,
+                          false, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, true,
+                          false, false, false, false,
+                          false, false, false, false];
+    allNotes.middleTomNotes = [false, false, false, false,
+                          false, false, true, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false];
+    allNotes.floorTomNotes = [false, false, false, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, true, false,
+                          false, false, false, false,
+                          false, false, false, false,
+                          false, false, true, false,
+                          true, false, false, false];
+    allNotes.footHH = [false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false];
+    allNotes.bassNotes = [true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false,
+                          true, false, false, false,
+                          false, false, false, false];
 
+      _(32).times(function(){
+        allNotes.splashNotes.push(false);
+    });
+      _(32).times(function(){
+        allNotes.crashNotes.push(false);
+    });
+      _(32).times(function(){
+        allNotes.rideNotes.push(false);
+    });
+      _(32).times(function(){
+        allNotes.openHHNotes.push(false);
+    });
+      _(32).times(function(){
+        allNotes.rimshotNotes.push(false);
+    });
+
+    allNotes.beatName = "Latin Beat";
+    allNotes.tempo = "100";
+
+    var demoModel = new Beat(allNotes);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
   },
 
   showBeatsList: function() {
