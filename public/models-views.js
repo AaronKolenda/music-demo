@@ -1,7 +1,6 @@
  var Beat  = Backbone.Model.extend({
 
     defaults: {
-      mousedown: false,
       isCurrentlyPlaying: false
     },
 
@@ -36,19 +35,18 @@
   mouseDown: function(ev) {
     ev.preventDefault();
     $(ev.currentTarget).toggleClass('selected');
-    this.mousedown = true;
   },
 
   mouseOver: function(ev) {
     ev.preventDefault();
-    if (this.mousedown) {
+    if (ev.originalEvent.which === 1) {
       $(ev.currentTarget).toggleClass('selected');
     }
+
   },
 
   mouseUp: function(ev) {
     ev.preventDefault();
-    this.mousedown = false;
   },
 
   save: function() {
@@ -125,4 +123,57 @@ tempoChanged: function() {
 
 });
 
+var Router = Backbone.Router.extend({
+
+  routes: {
+    "": "displayLanding",
+    "user/:user_id": "showBeatsList",
+    "user/:user_id/:beat_name": "showBeat",
+  },
+
+  displayLanding: function(){
+    $(".table-example").html("");
+    var allNotes = {};
+    allNotes.rimshotNotes = [];
+    allNotes.cowbellNotes = [];
+    allNotes.splashNotes = [];
+    allNotes.crashNotes = [];
+    allNotes.rideNotes = [];
+    allNotes.openHHNotes = [];
+    allNotes.closedHHNotes = [];
+    allNotes.highTomNotes = [];
+    allNotes.smallTomNotes = [];
+    allNotes.snareNotes = [];
+    allNotes.middleTomNotes = [];
+    allNotes.floorTomNotes = [];
+    allNotes.footHH = [];
+    allNotes.bassNotes = [];
+
+    _.each(allNotes, function(element) {
+
+      _(32).times(function(){
+        element.push(false);
+      });
+    })
+
+    allNotes.beatName = "Demo Beat";
+    allNotes.tempo = "100";
+
+    var demoModel = new Beat(allNotes);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+
+
+  },
+
+  showBeatsList: function() {
+
+  },
+
+  showBeat: function(page) {
+    
+  }
+
+});
 

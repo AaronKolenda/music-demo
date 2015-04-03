@@ -1,7 +1,7 @@
   $(document).on("ready", function(){
 
   getTemplates();
-   $rimshot = $("#rimshot");
+   /*$rimshot = $("#rimshot");
    $cowbell = $("#cowbell");
    $splash = $("#splash");
    $crash = $("#crash");
@@ -16,7 +16,10 @@
    $HHFoot = $("#HHFoot");
    $bass = $("#bass");
 
-
+*/
+  var router = new Router;
+  Backbone.history.start()/*
+  //router.navigate("", { trigger: true });
 
    rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
    temp = rows.slice(0);
@@ -43,7 +46,7 @@
 
   var mousedown = false;
 
-  $('#beat td').on("mousedown", function(event) {
+  /*$('#beat td').on("mousedown", function(event) {
     event.preventDefault();
     $(this).toggleClass('selected');
     mousedown = true;
@@ -70,14 +73,14 @@
 
   $('#load').on("click", function() {
     load();
-  });
+  });*/
 
 
 });
 
 var notesFromServer;
 var savedBeat;
-
+/*
   var save = function() {
     var notes = {};
     notes.rimshotNotes = [];
@@ -121,13 +124,13 @@ var savedBeat;
 }
 
 var load = function() {
-  /*$("#loaded-beat").html("");
+  $("#loaded-beat").html("");
   var newBeatView = new BeatView(savedBeat);
-  $("#loaded-beat").append(newBeatView.el);*/
+  $("#loaded-beat").append(newBeatView.el);
   $("body").html("");
   var newBeatView = new BeatView(savedBeat);
   $("body").append(newBeatView.el);
-}
+}*/
 
 var calculateTempo = function() {
   var bpm = $('#tempo').val();
@@ -335,7 +338,6 @@ var play = function() {
 
 
 }
-
 
 
 
