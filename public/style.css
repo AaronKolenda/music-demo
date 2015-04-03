@@ -12,6 +12,20 @@ td {
   height: 16px;
 }
 
+td:nth-child(4n+4) {
+	border-right: 4px solid darkred;
+}
+
+td:nth-child(16) {
+	border-right: 4px solid red;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 .col1 {
   width: 100px;
 }

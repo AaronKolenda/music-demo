@@ -1,11 +1,14 @@
   $(document).on("ready", function(){
 
   getTemplates();
-
+   $rimshot = $("#rimshot");
+   $cowbell = $("#cowbell");
+   $splash = $("#splash");
    $crash = $("#crash");
    $ride = $("#ride");
    $openHH = $("#openHH");
    $closedHH = $("#closedHH");
+   $highTom = $("#high-tom");
    $smallTom = $("#small-tom");
    $snare = $("#snare");
    $middleTom = $("#middle-tom");
@@ -15,7 +18,7 @@
 
 
 
-   rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+   rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
    temp = rows.slice(0);
       
 
@@ -77,10 +80,14 @@ var savedBeat;
 
   var save = function() {
     var notes = {};
+    notes.rimshotNotes = [];
+    notes.cowbellNotes = [];
+    notes.splashNotes = [];
     notes.crashNotes = [];
     notes.rideNotes = [];
     notes.openHHNotes = [];
     notes.closedHHNotes = [];
+    notes.highTomNotes = [];
     notes.smallTomNotes = [];
     notes.snareNotes = [];
     notes.middleTomNotes = [];
@@ -135,7 +142,7 @@ var turnOffHighlight = function(td) {
 
 var crashAudio = new Howl({
   urls: ['samples/crash.mp3'],
-  volume: 0.4
+  volume: 0.2
 });
 var floorTomAudio = new Howl({
   urls: ['samples/floortom.mp3'],
@@ -155,11 +162,11 @@ var middleTomAudio = new Howl({
 });
 var openHHAudio = new Howl({
   urls: ['samples/openhat.mp3'],
-  volume: 0.4
+  volume: 0.2
 });
 var rideAudio = new Howl({
   urls: ['samples/ride.mp3'],
-  volume: 0.4
+  volume: 0.2
 });
 var smallTomAudio = new Howl({
   urls: ['samples/smalltom.mp3'],
@@ -167,10 +174,26 @@ var smallTomAudio = new Howl({
 });
 var snareAudio = new Howl({
   urls: ['samples/snare.mp3'],
-  volume: 0.4
+  volume: 0.5
 });
 var footHHAudio = new Howl({
   urls: ['samples/footHH.mp3'],
+  volume: 0.3
+});
+var cowbellAudio = new Howl({
+  urls: ['samples/cowbell.mp3'],
+  volume: 0.7
+});
+var rimshotAudio = new Howl({
+  urls: ['samples/rimshot.mp3'],
+  volume: 0.2
+});
+var splashAudio = new Howl({
+  urls: ['samples/splash.mp3'],
+  volume: 1.0
+});
+var highTomAudio = new Howl({
+  urls: ['samples/hightom.mp3'],
   volume: 0.7
 });
 
@@ -183,9 +206,13 @@ var getTemplates = function(){
 
 }
 
+  var $rimshot;
+  var $cowbell;
+  var $splash;
   var $ride;
   var $openHH;
   var $closedHH;
+  var $highTom;
   var $smallTom;
   var $snare;
   var $middleTom;
@@ -202,7 +229,7 @@ var playLine = function(currentTD, originalTD, tempNum, audio) {
     if (currentTD.hasClass('selected')) {
       currentTD.addClass('highlight');
       audio.play();
-      setTimeout(turnOffHighlight, 100, currentTD);
+      setTimeout(turnOffHighlight, 120, currentTD);
     }
 
     temp[tempNum] = originalTD;
@@ -215,7 +242,7 @@ var playLine = function(currentTD, originalTD, tempNum, audio) {
 
       currentTD.addClass('highlight');
       audio.play();
-      setTimeout(turnOffHighlight, 100, currentTD);
+      setTimeout(turnOffHighlight, 120, currentTD);
     }
     temp[tempNum] = currentTD.next();
   }  
@@ -229,6 +256,15 @@ var currentlyPlaying = false;
 
 var play = function() {
 
+  rimshot = $("#rimshot-row")[0].children[0];
+ $rimshot = $(rimshot);
+
+ cowbell = $("#cowbell-row")[0].children[0];
+ $cowbell = $(cowbell);
+
+ splash = $("#splash-row")[0].children[0];
+ $splash = $(splash);
+
  crash = $("#crash-row")[0].children[0];
  $crash = $(crash);
 
@@ -240,6 +276,9 @@ var play = function() {
 
  closedHH = $("#closedHH-row")[0].children[0];
  $closedHH = $(closedHH);
+
+ highTom = $("#high-tom-row")[0].children[0];
+ $highTom = $(highTom);
 
  smallTom = $("#small-tom-row")[0].children[0];
  $smallTom = $(smallTom);
@@ -259,24 +298,32 @@ var play = function() {
  bass = $("#bass-row")[0].children[0];
  $bass = $(bass);
 
-   rows = [$crash, $ride, $openHH, $closedHH, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+   rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
    temp = rows.slice(0);
 
-  crashID = setInterval(function(){playLine(rows[0], rows[0], 0, crashAudio)}, calculateTempo());
-  rideID = setInterval(function(){playLine(rows[1], rows[1], 1, rideAudio)}, calculateTempo());
-  openHHID = setInterval(function(){playLine(rows[2], rows[2], 2, openHHAudio)}, calculateTempo());
-  closedHHID = setInterval(function(){playLine(rows[3], rows[3], 3, closedHHAudio)}, calculateTempo());
-  smallTomID = setInterval(function(){playLine(rows[4], rows[4], 4, smallTomAudio)}, calculateTempo());
-  snareID = setInterval(function(){playLine(rows[5], rows[5], 5, snareAudio)}, calculateTempo());
-  middleTomID = setInterval(function(){playLine(rows[6], rows[6], 6, middleTomAudio)}, calculateTempo());
-  floorTomID = setInterval(function(){playLine(rows[7], rows[7], 7, floorTomAudio)}, calculateTempo());
-  hhFootID = setInterval(function(){playLine(rows[8], rows[8], 8)}, calculateTempo());
-  bassID = setInterval(function(){playLine(rows[9], rows[9], 9, bassAudio)}, calculateTempo());
+  rimshotID = setInterval(function(){playLine(rows[0], rows[0], 0, rimshotAudio)}, calculateTempo());
+  cowbellID = setInterval(function(){playLine(rows[1], rows[1], 1, cowbellAudio)}, calculateTempo());
+  splashID = setInterval(function(){playLine(rows[2], rows[2], 2, splashAudio)}, calculateTempo());
+  crashID = setInterval(function(){playLine(rows[3], rows[3], 3, crashAudio)}, calculateTempo());
+  rideID = setInterval(function(){playLine(rows[4], rows[4], 4, rideAudio)}, calculateTempo());
+  openHHID = setInterval(function(){playLine(rows[5], rows[5], 5, openHHAudio)}, calculateTempo());
+  closedHHID = setInterval(function(){playLine(rows[6], rows[6], 6, closedHHAudio)}, calculateTempo());
+  highTomID = setInterval(function(){playLine(rows[7], rows[7], 7, highTomAudio)}, calculateTempo());
+  smallTomID = setInterval(function(){playLine(rows[8], rows[8], 8, smallTomAudio)}, calculateTempo());
+  snareID = setInterval(function(){playLine(rows[9], rows[9], 9, snareAudio)}, calculateTempo());
+  middleTomID = setInterval(function(){playLine(rows[10], rows[10], 10, middleTomAudio)}, calculateTempo());
+  floorTomID = setInterval(function(){playLine(rows[11], rows[11], 11, floorTomAudio)}, calculateTempo());
+  hhFootID = setInterval(function(){playLine(rows[12], rows[12], 12, footHHAudio)}, calculateTempo());
+  bassID = setInterval(function(){playLine(rows[13], rows[13], 13, bassAudio)}, calculateTempo());
 
+  rowIDs.push(rimshotID);
+  rowIDs.push(cowbellID);
+  rowIDs.push(splashID);
   rowIDs.push(crashID);
   rowIDs.push(rideID);
   rowIDs.push(openHHID);
   rowIDs.push(closedHHID);
+  rowIDs.push(highTomID);
   rowIDs.push(smallTomID);
   rowIDs.push(snareID);
   rowIDs.push(middleTomID);
