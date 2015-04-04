@@ -171,105 +171,23 @@ var Router = Backbone.Router.extend({
 
   displayLatin: function(){
     $("#loaded-beat").html("");
-    var allNotes = {};
-    allNotes.rimshotNotes = [];
-    allNotes.cowbellNotes = [true, false, false, true,
-                          false, false, true, false,
-                          false, false, true, false,
-                          true, false, false, false,
-                          true, false, false, true,
-                          false, false, true, false,
-                          false, false, true, false,
-                          true, false, false, false];
-    allNotes.splashNotes = [];
-    allNotes.crashNotes = [];
-    allNotes.rideNotes = [];
-    allNotes.openHHNotes = [];
-    allNotes.closedHHNotes = [true, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, true, true,
-                          true, false, true, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, true, true];
-    allNotes.highTomNotes = [true, false, false, true,
-                          true, false, false, false,
-                          false, false, false, true,
-                          true, false, false, false,
-                          true, false, false, true,
-                          true, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false];
-    allNotes.smallTomNotes = [false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, true, false,
-                          false, false, false, false,
-                          false, false, false, false];
-    allNotes.snareNotes = [true, false, false, false,
-                          false, false, false, true,
-                          false, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, true,
-                          false, false, false, false,
-                          false, false, false, false];
-    allNotes.middleTomNotes = [false, false, false, false,
-                          false, false, true, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false];
-    allNotes.floorTomNotes = [false, false, false, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, true, false,
-                          false, false, false, false,
-                          false, false, false, false,
-                          false, false, true, false,
-                          true, false, false, false];
-    allNotes.footHH = [false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false];
-    allNotes.bassNotes = [true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false,
-                          true, false, false, false,
-                          false, false, false, false];
+    var demoModel = new Beat(Demos.latin);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
 
-      _(32).times(function(){
-        allNotes.splashNotes.push(false);
-    });
-      _(32).times(function(){
-        allNotes.crashNotes.push(false);
-    });
-      _(32).times(function(){
-        allNotes.rideNotes.push(false);
-    });
-      _(32).times(function(){
-        allNotes.openHHNotes.push(false);
-    });
-      _(32).times(function(){
-        allNotes.rimshotNotes.push(false);
-    });
+  displayRock: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.rock);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
 
-    allNotes.beatName = "Latin Beat";
-    allNotes.tempo = "100";
-
-    var demoModel = new Beat(allNotes);
+  displayJazz: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.jazz);
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
