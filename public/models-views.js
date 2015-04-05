@@ -136,6 +136,9 @@ var Router = Backbone.Router.extend({
     "demos/funk": "displayFunk",
     "demos/punk": "displayPunk",
     "demos/bossa-nova": "displayBossaNova",
+    "demos/trap": "displayTrap",
+    "demos/dubstep": "displayDubstep",
+    "demos/house": "displayHouse",
   },
 
   displayLanding: function(){
@@ -223,6 +226,30 @@ var Router = Backbone.Router.extend({
   displayBossaNova: function(){
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos.bossaNova);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayTrap: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.trap);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+   displayDubstep: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.dubstep);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayHouse: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.house);
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
