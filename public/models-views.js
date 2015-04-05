@@ -133,6 +133,7 @@ var Router = Backbone.Router.extend({
     "demos/rock": "displayRock",
     "demos/jazz": "displayJazz",
     "demos/metal": "displayMetal",
+    "demos/funk": "displayFunk",
   },
 
   displayLanding: function(){
@@ -188,6 +189,22 @@ var Router = Backbone.Router.extend({
   displayJazz: function(){
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos.jazz);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayFunk: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.funk);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayMetal: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.metal);
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
