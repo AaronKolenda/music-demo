@@ -4,6 +4,8 @@ Demos.rock = {};
 Demos.jazz = {};
 Demos.funk = {};
 Demos.metal = {};
+Demos.punk = {};
+Demos.bossaNova = {};
 
 Demos.latin.rimshotNotes = [];
 Demos.latin.cowbellNotes = [true, false, false, true,
@@ -215,7 +217,8 @@ Demos.jazz.smallTomNotes[18] = true;
 Demos.jazz.smallTomNotes[19] = true;
 
 Demos.jazz.snareNotes[4] = true;
-Demos.jazz.snareNotes[12] = true;
+Demos.jazz.snareNotes[11] = true;
+Demos.jazz.snareNotes[14] = true;
 Demos.jazz.snareNotes[20] = true;
 Demos.jazz.snareNotes[23] = true;
 Demos.jazz.snareNotes[26] = true;
@@ -383,6 +386,168 @@ Demos.metal.crashNotes[24] = true;
 
 Demos.metal.beatName = "Metal Demo";
 Demos.metal.tempo = "120";
+
+//---------------Punk Demo----------------//
+
+
+    Demos.punk.rimshotNotes = [];
+    Demos.punk.cowbellNotes = [];
+    Demos.punk.splashNotes = [];
+    Demos.punk.crashNotes = [];
+    Demos.punk.rideNotes = [];
+    Demos.punk.openHHNotes = [];
+    Demos.punk.closedHHNotes = [];
+    Demos.punk.highTomNotes = [];
+    Demos.punk.smallTomNotes = [];
+    Demos.punk.snareNotes = [];
+    Demos.punk.middleTomNotes = [];
+    Demos.punk.floorTomNotes = [];
+    Demos.punk.footHH = [];
+    Demos.punk.bassNotes = [];
+
+_.each(Demos.punk, function(element) {
+
+      _(32).times(function(){
+        element.push(false);
+      });
+    })
+
+
+
+Demos.punk.snareNotes[2] = true;
+Demos.punk.snareNotes[6] = true;
+Demos.punk.snareNotes[10] = true;
+Demos.punk.snareNotes[14] = true;
+Demos.punk.snareNotes[18] = true;
+Demos.punk.snareNotes[22] = true;
+Demos.punk.snareNotes[23] = true;
+
+Demos.punk.middleTomNotes[26] = true;
+Demos.punk.middleTomNotes[27] = true;
+Demos.punk.middleTomNotes[28] = true;
+Demos.punk.middleTomNotes[29] = true;
+
+Demos.punk.floorTomNotes[30] = true;
+Demos.punk.floorTomNotes[31] = true;
+
+Demos.punk.bassNotes[0] = true;
+Demos.punk.bassNotes[3] = true;
+Demos.punk.bassNotes[5] = true;
+Demos.punk.bassNotes[8] = true;
+Demos.punk.bassNotes[11] = true;
+Demos.punk.bassNotes[13] = true;
+Demos.punk.bassNotes[16] = true;
+Demos.punk.bassNotes[19] = true;
+Demos.punk.bassNotes[21] = true;
+Demos.punk.bassNotes[24] = true;
+
+
+
+Demos.punk.closedHHNotes[2] = true;
+Demos.punk.closedHHNotes[4] = true;
+Demos.punk.closedHHNotes[6] = true;
+Demos.punk.closedHHNotes[8] = true;
+Demos.punk.closedHHNotes[10] = true;
+Demos.punk.closedHHNotes[12] = true;
+Demos.punk.closedHHNotes[14] = true;
+Demos.punk.closedHHNotes[16] = true;
+Demos.punk.closedHHNotes[18] = true;
+Demos.punk.closedHHNotes[20] = true;
+Demos.punk.closedHHNotes[24] = true;
+
+
+Demos.punk.crashNotes[0] = true;
+
+
+
+Demos.punk.beatName = "Punk Demo";
+Demos.punk.tempo = "170";
+
+//---------------Bossa Nova Demo----------------//
+
+
+    Demos.bossaNova.rimshotNotes = [];
+    Demos.bossaNova.cowbellNotes = [];
+    Demos.bossaNova.splashNotes = [];
+    Demos.bossaNova.crashNotes = [];
+    Demos.bossaNova.rideNotes = [];
+    Demos.bossaNova.openHHNotes = [];
+    Demos.bossaNova.closedHHNotes = [];
+    Demos.bossaNova.highTomNotes = [];
+    Demos.bossaNova.smallTomNotes = [];
+    Demos.bossaNova.snareNotes = [];
+    Demos.bossaNova.middleTomNotes = [];
+    Demos.bossaNova.floorTomNotes = [];
+    Demos.bossaNova.footHH = [];
+    Demos.bossaNova.bassNotes = [];
+
+_.each(Demos.bossaNova, function(element) {
+
+      _(32).times(function(){
+        element.push(false);
+      });
+    })
+
+Demos.bossaNova.footHH[0] = true;
+Demos.bossaNova.footHH[4] = true;
+Demos.bossaNova.footHH[8] = true;
+Demos.bossaNova.footHH[12] = true;
+Demos.bossaNova.footHH[16] = true;
+Demos.bossaNova.footHH[20] = true;
+Demos.bossaNova.footHH[24] = true;
+Demos.bossaNova.footHH[28] = true;
+
+Demos.bossaNova.rideNotes[2] = true;
+Demos.bossaNova.rideNotes[5] = true;
+Demos.bossaNova.rideNotes[8] = true;
+Demos.bossaNova.rideNotes[11] = true;
+Demos.bossaNova.rideNotes[14] = true;
+Demos.bossaNova.rideNotes[18] = true;
+Demos.bossaNova.rideNotes[21] = true;
+Demos.bossaNova.rideNotes[24] = true;
+Demos.bossaNova.rideNotes[27] = true;
+Demos.bossaNova.rideNotes[30] = true;
+
+Demos.bossaNova.rimshotNotes[0] = true;
+Demos.bossaNova.rimshotNotes[3] = true;
+Demos.bossaNova.rimshotNotes[6] = true;
+Demos.bossaNova.rimshotNotes[10] = true;
+Demos.bossaNova.rimshotNotes[13] = true;
+Demos.bossaNova.rimshotNotes[16] = true;
+Demos.bossaNova.rimshotNotes[19] = true;
+Demos.bossaNova.rimshotNotes[22] = true;
+Demos.bossaNova.rimshotNotes[26] = true;
+Demos.bossaNova.rimshotNotes[29] = true;
+
+Demos.bossaNova.middleTomNotes[29] = true;
+Demos.bossaNova.middleTomNotes[30] = true;
+
+Demos.bossaNova.bassNotes[0] = true;
+Demos.bossaNova.bassNotes[3] = true;
+Demos.bossaNova.bassNotes[4] = true;
+Demos.bossaNova.bassNotes[7] = true;
+Demos.bossaNova.bassNotes[8] = true;
+Demos.bossaNova.bassNotes[11] = true;
+Demos.bossaNova.bassNotes[12] = true;
+Demos.bossaNova.bassNotes[15] = true;
+Demos.bossaNova.bassNotes[16] = true;
+Demos.bossaNova.bassNotes[19] = true;
+Demos.bossaNova.bassNotes[20] = true;
+Demos.bossaNova.bassNotes[23] = true;
+Demos.bossaNova.bassNotes[24] = true;
+Demos.bossaNova.bassNotes[27] = true;
+Demos.bossaNova.bassNotes[28] = true;
+Demos.bossaNova.bassNotes[31] = true;
+
+Demos.bossaNova.highTomNotes[22] = true;
+Demos.bossaNova.highTomNotes[22] = true;
+
+Demos.bossaNova.smallTomNotes[7] = true;
+Demos.bossaNova.smallTomNotes[15] = true;
+Demos.bossaNova.smallTomNotes[23] = true;
+
+Demos.bossaNova.beatName = "Bossa Nova Demo";
+Demos.bossaNova.tempo = "65";
 
 
 

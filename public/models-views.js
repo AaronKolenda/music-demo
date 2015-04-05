@@ -134,6 +134,8 @@ var Router = Backbone.Router.extend({
     "demos/jazz": "displayJazz",
     "demos/metal": "displayMetal",
     "demos/funk": "displayFunk",
+    "demos/punk": "displayPunk",
+    "demos/bossa-nova": "displayBossaNova",
   },
 
   displayLanding: function(){
@@ -205,6 +207,22 @@ var Router = Backbone.Router.extend({
   displayMetal: function(){
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos.metal);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayPunk: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.punk);
+    var demoView = new BeatView(demoModel);
+    console.log(demoView);
+    $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayBossaNova: function(){
+    $("#loaded-beat").html("");
+    var demoModel = new Beat(Demos.bossaNova);
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
