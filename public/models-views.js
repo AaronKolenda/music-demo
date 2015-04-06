@@ -93,7 +93,7 @@
     notes.tempo = $('#tempo').val();
     notes.beatName = $('#name').val();
     console.log(notes);     
-    notesFromServer = notes;
+    //notesFromServer = notes;
 },
 
 playBeat: function() {
@@ -129,20 +129,11 @@ var Router = Backbone.Router.extend({
     "": "displayLanding",
     "user/:user_id": "showBeatsList",
     "user/:user_id/:beat_name": "showBeat",
-    "demos/latin": "displayLatin",
-    "demos/rock": "displayRock",
-    "demos/jazz": "displayJazz",
-    "demos/metal": "displayMetal",
-    "demos/funk": "displayFunk",
-    "demos/punk": "displayPunk",
-    "demos/bossa-nova": "displayBossaNova",
-    "demos/trap": "displayTrap",
-    "demos/dubstep": "displayDubstep",
-    "demos/house": "displayHouse",
+    "demos/:demo": "displayDemo",
   },
 
   displayLanding: function(){
-    $(".table-example").html("");
+    $("#loaded-beat").html("");
     var allNotes = {};
     allNotes.rimshotNotes = [];
     allNotes.cowbellNotes = [];
@@ -166,7 +157,7 @@ var Router = Backbone.Router.extend({
       });
     })
 
-    allNotes.beatName = "Demo Beat";
+    allNotes.beatName = "";
     allNotes.tempo = "100";
 
     var demoModel = new Beat(allNotes);
@@ -175,81 +166,9 @@ var Router = Backbone.Router.extend({
     $("#loaded-beat").append(demoView.$el);
   },
 
-  displayLatin: function(){
+  displayDemo: function(demo){
     $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.latin);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayRock: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.rock);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayJazz: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.jazz);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayFunk: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.funk);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayMetal: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.metal);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayPunk: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.punk);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayBossaNova: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.bossaNova);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayTrap: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.trap);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-   displayDubstep: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.dubstep);
-    var demoView = new BeatView(demoModel);
-    console.log(demoView);
-    $("#loaded-beat").append(demoView.$el);
-  },
-
-  displayHouse: function(){
-    $("#loaded-beat").html("");
-    var demoModel = new Beat(Demos.house);
+    var demoModel = new Beat(Demos[demo]);
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);

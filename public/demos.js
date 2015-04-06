@@ -10,120 +10,101 @@ Demos.trap = {};
 Demos.dubstep = {};
 Demos.house = {};
 
+//---------------Latin Demo----------------//
+
 Demos.latin.rimshotNotes = [];
-Demos.latin.cowbellNotes = [true, false, false, true,
-                      false, false, true, false,
-                      false, false, true, false,
-                      true, false, false, false,
-                      true, false, false, true,
-                      false, false, true, false,
-                      false, false, true, false,
-                      true, false, false, false];
+Demos.latin.cowbellNotes = [];
 Demos.latin.splashNotes = [];
 Demos.latin.crashNotes = [];
 Demos.latin.rideNotes = [];
 Demos.latin.openHHNotes = [];
-Demos.latin.closedHHNotes = [true, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, true, true,
-                      true, false, true, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, true, true];
-Demos.latin.highTomNotes = [true, false, false, true,
-                      true, false, false, false,
-                      false, false, false, true,
-                      true, false, false, false,
-                      true, false, false, true,
-                      true, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false];
-Demos.latin.smallTomNotes = [false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, true, false,
-                      false, false, false, false,
-                      false, false, false, false];
-Demos.latin.snareNotes = [true, false, false, false,
-                      false, false, false, true,
-                      false, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, true,
-                      false, false, false, false,
-                      false, false, false, false];
-Demos.latin.middleTomNotes = [false, false, false, false,
-                      false, false, true, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false];
-Demos.latin.floorTomNotes = [false, false, false, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, true, false,
-                      false, false, false, false,
-                      false, false, false, false,
-                      false, false, true, false,
-                      true, false, false, false];
-Demos.latin.footHH = [false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false];
-Demos.latin.bassNotes = [true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false,
-                      true, false, false, false,
-                      false, false, false, false];
+Demos.latin.closedHHNotes = [];
+Demos.latin.highTomNotes = [];
+Demos.latin.smallTomNotes = [];
+Demos.latin.snareNotes = [];
+Demos.latin.middleTomNotes = [];
+Demos.latin.floorTomNotes = [];
+Demos.latin.footHH = [];
+Demos.latin.bassNotes = [];
 
-  _(32).times(function(){
-    Demos.latin.splashNotes.push(false);
-});
-  _(32).times(function(){
-    Demos.latin.crashNotes.push(false);
-});
-  _(32).times(function(){
-    Demos.latin.rideNotes.push(false);
-});
-  _(32).times(function(){
-    Demos.latin.openHHNotes.push(false);
-});
-  _(32).times(function(){
-    Demos.latin.rimshotNotes.push(false);
-});
+  _.each(Demos.latin, function(element) {
 
-Demos.latin.beatName = "Latin Beat";
+      _(32).times(function(){
+        element.push(false);
+      });
+    })
+
+Demos.latin.cowbellNotes[0] = true;
+Demos.latin.cowbellNotes[3] = true;
+Demos.latin.cowbellNotes[6] = true;
+Demos.latin.cowbellNotes[10] = true;
+Demos.latin.cowbellNotes[12] = true;
+Demos.latin.cowbellNotes[16] = true;
+Demos.latin.cowbellNotes[19] = true;
+Demos.latin.cowbellNotes[22] = true;
+Demos.latin.cowbellNotes[26] = true;
+Demos.latin.cowbellNotes[28] = true;
+
+Demos.latin.bassNotes[0] = true;
+Demos.latin.bassNotes[8] = true;
+Demos.latin.bassNotes[16] = true;
+Demos.latin.bassNotes[24] = true;
+
+Demos.latin.footHH[4] = true;
+Demos.latin.footHH[12] = true;
+Demos.latin.footHH[20] = true;
+Demos.latin.footHH[28] = true;
+
+Demos.latin.closedHHNotes[0] = true;
+Demos.latin.closedHHNotes[14] = true;
+Demos.latin.closedHHNotes[15] = true;
+Demos.latin.closedHHNotes[16] = true;
+Demos.latin.closedHHNotes[18] = true;
+Demos.latin.closedHHNotes[30] = true;
+Demos.latin.closedHHNotes[31] = true;
+
+Demos.latin.snareNotes[0] = true;
+Demos.latin.snareNotes[7] = true;
+Demos.latin.snareNotes[16] = true;
+Demos.latin.snareNotes[23] = true;
+
+Demos.latin.floorTomNotes[14] = true;
+Demos.latin.floorTomNotes[26] = true;
+Demos.latin.floorTomNotes[28] = true;
+
+Demos.latin.highTomNotes[0] = true;
+Demos.latin.highTomNotes[3] = true;
+Demos.latin.highTomNotes[4] = true;
+Demos.latin.highTomNotes[11] = true;
+Demos.latin.highTomNotes[12] = true;
+Demos.latin.highTomNotes[16] = true;
+Demos.latin.highTomNotes[19] = true;
+Demos.latin.highTomNotes[20] = true;
+
+Demos.latin.middleTomNotes[6] = true;
+
+Demos.latin.smallTomNotes[22] = true;
+
+Demos.latin.beatName = "Latin Demo";
 Demos.latin.tempo = "100";
 
 //---------------Rock Demo----------------//
 
 
-    Demos.rock.rimshotNotes = [];
-    Demos.rock.cowbellNotes = [];
-    Demos.rock.splashNotes = [];
-    Demos.rock.crashNotes = [];
-    Demos.rock.rideNotes = [];
-    Demos.rock.openHHNotes = [];
-    Demos.rock.closedHHNotes = [];
-    Demos.rock.highTomNotes = [];
-    Demos.rock.smallTomNotes = [];
-    Demos.rock.snareNotes = [];
-    Demos.rock.middleTomNotes = [];
-    Demos.rock.floorTomNotes = [];
-    Demos.rock.footHH = [];
-    Demos.rock.bassNotes = [];
+Demos.rock.rimshotNotes = [];
+Demos.rock.cowbellNotes = [];
+Demos.rock.splashNotes = [];
+Demos.rock.crashNotes = [];
+Demos.rock.rideNotes = [];
+Demos.rock.openHHNotes = [];
+Demos.rock.closedHHNotes = [];
+Demos.rock.highTomNotes = [];
+Demos.rock.smallTomNotes = [];
+Demos.rock.snareNotes = [];
+Demos.rock.middleTomNotes = [];
+Demos.rock.floorTomNotes = [];
+Demos.rock.footHH = [];
+Demos.rock.bassNotes = [];
 
 _.each(Demos.rock, function(element) {
 
@@ -173,20 +154,20 @@ Demos.rock.tempo = "100";
 //---------------Jazz Demo----------------//
 
 
-    Demos.jazz.rimshotNotes = [];
-    Demos.jazz.cowbellNotes = [];
-    Demos.jazz.splashNotes = [];
-    Demos.jazz.crashNotes = [];
-    Demos.jazz.rideNotes = [];
-    Demos.jazz.openHHNotes = [];
-    Demos.jazz.closedHHNotes = [];
-    Demos.jazz.highTomNotes = [];
-    Demos.jazz.smallTomNotes = [];
-    Demos.jazz.snareNotes = [];
-    Demos.jazz.middleTomNotes = [];
-    Demos.jazz.floorTomNotes = [];
-    Demos.jazz.footHH = [];
-    Demos.jazz.bassNotes = [];
+Demos.jazz.rimshotNotes = [];
+Demos.jazz.cowbellNotes = [];
+Demos.jazz.splashNotes = [];
+Demos.jazz.crashNotes = [];
+Demos.jazz.rideNotes = [];
+Demos.jazz.openHHNotes = [];
+Demos.jazz.closedHHNotes = [];
+Demos.jazz.highTomNotes = [];
+Demos.jazz.smallTomNotes = [];
+Demos.jazz.snareNotes = [];
+Demos.jazz.middleTomNotes = [];
+Demos.jazz.floorTomNotes = [];
+Demos.jazz.footHH = [];
+Demos.jazz.bassNotes = [];
 
 _.each(Demos.jazz, function(element) {
 
@@ -240,20 +221,20 @@ Demos.jazz.tempo = "80";
 //---------------Funk Demo----------------//
 
 
-    Demos.funk.rimshotNotes = [];
-    Demos.funk.cowbellNotes = [];
-    Demos.funk.splashNotes = [];
-    Demos.funk.crashNotes = [];
-    Demos.funk.rideNotes = [];
-    Demos.funk.openHHNotes = [];
-    Demos.funk.closedHHNotes = [];
-    Demos.funk.highTomNotes = [];
-    Demos.funk.smallTomNotes = [];
-    Demos.funk.snareNotes = [];
-    Demos.funk.middleTomNotes = [];
-    Demos.funk.floorTomNotes = [];
-    Demos.funk.footHH = [];
-    Demos.funk.bassNotes = [];
+Demos.funk.rimshotNotes = [];
+Demos.funk.cowbellNotes = [];
+Demos.funk.splashNotes = [];
+Demos.funk.crashNotes = [];
+Demos.funk.rideNotes = [];
+Demos.funk.openHHNotes = [];
+Demos.funk.closedHHNotes = [];
+Demos.funk.highTomNotes = [];
+Demos.funk.smallTomNotes = [];
+Demos.funk.snareNotes = [];
+Demos.funk.middleTomNotes = [];
+Demos.funk.floorTomNotes = [];
+Demos.funk.footHH = [];
+Demos.funk.bassNotes = [];
 
 _.each(Demos.funk, function(element) {
 
@@ -312,20 +293,20 @@ Demos.funk.tempo = "110";
 //---------------Metal Demo----------------//
 
 
-    Demos.metal.rimshotNotes = [];
-    Demos.metal.cowbellNotes = [];
-    Demos.metal.splashNotes = [];
-    Demos.metal.crashNotes = [];
-    Demos.metal.rideNotes = [];
-    Demos.metal.openHHNotes = [];
-    Demos.metal.closedHHNotes = [];
-    Demos.metal.highTomNotes = [];
-    Demos.metal.smallTomNotes = [];
-    Demos.metal.snareNotes = [];
-    Demos.metal.middleTomNotes = [];
-    Demos.metal.floorTomNotes = [];
-    Demos.metal.footHH = [];
-    Demos.metal.bassNotes = [];
+Demos.metal.rimshotNotes = [];
+Demos.metal.cowbellNotes = [];
+Demos.metal.splashNotes = [];
+Demos.metal.crashNotes = [];
+Demos.metal.rideNotes = [];
+Demos.metal.openHHNotes = [];
+Demos.metal.closedHHNotes = [];
+Demos.metal.highTomNotes = [];
+Demos.metal.smallTomNotes = [];
+Demos.metal.snareNotes = [];
+Demos.metal.middleTomNotes = [];
+Demos.metal.floorTomNotes = [];
+Demos.metal.footHH = [];
+Demos.metal.bassNotes = [];
 
 _.each(Demos.metal, function(element) {
 
@@ -393,20 +374,20 @@ Demos.metal.tempo = "120";
 //---------------Punk Demo----------------//
 
 
-    Demos.punk.rimshotNotes = [];
-    Demos.punk.cowbellNotes = [];
-    Demos.punk.splashNotes = [];
-    Demos.punk.crashNotes = [];
-    Demos.punk.rideNotes = [];
-    Demos.punk.openHHNotes = [];
-    Demos.punk.closedHHNotes = [];
-    Demos.punk.highTomNotes = [];
-    Demos.punk.smallTomNotes = [];
-    Demos.punk.snareNotes = [];
-    Demos.punk.middleTomNotes = [];
-    Demos.punk.floorTomNotes = [];
-    Demos.punk.footHH = [];
-    Demos.punk.bassNotes = [];
+Demos.punk.rimshotNotes = [];
+Demos.punk.cowbellNotes = [];
+Demos.punk.splashNotes = [];
+Demos.punk.crashNotes = [];
+Demos.punk.rideNotes = [];
+Demos.punk.openHHNotes = [];
+Demos.punk.closedHHNotes = [];
+Demos.punk.highTomNotes = [];
+Demos.punk.smallTomNotes = [];
+Demos.punk.snareNotes = [];
+Demos.punk.middleTomNotes = [];
+Demos.punk.floorTomNotes = [];
+Demos.punk.footHH = [];
+Demos.punk.bassNotes = [];
 
 _.each(Demos.punk, function(element) {
 
@@ -469,20 +450,20 @@ Demos.punk.tempo = "170";
 //---------------Bossa Nova Demo----------------//
 
 
-    Demos.bossaNova.rimshotNotes = [];
-    Demos.bossaNova.cowbellNotes = [];
-    Demos.bossaNova.splashNotes = [];
-    Demos.bossaNova.crashNotes = [];
-    Demos.bossaNova.rideNotes = [];
-    Demos.bossaNova.openHHNotes = [];
-    Demos.bossaNova.closedHHNotes = [];
-    Demos.bossaNova.highTomNotes = [];
-    Demos.bossaNova.smallTomNotes = [];
-    Demos.bossaNova.snareNotes = [];
-    Demos.bossaNova.middleTomNotes = [];
-    Demos.bossaNova.floorTomNotes = [];
-    Demos.bossaNova.footHH = [];
-    Demos.bossaNova.bassNotes = [];
+Demos.bossaNova.rimshotNotes = [];
+Demos.bossaNova.cowbellNotes = [];
+Demos.bossaNova.splashNotes = [];
+Demos.bossaNova.crashNotes = [];
+Demos.bossaNova.rideNotes = [];
+Demos.bossaNova.openHHNotes = [];
+Demos.bossaNova.closedHHNotes = [];
+Demos.bossaNova.highTomNotes = [];
+Demos.bossaNova.smallTomNotes = [];
+Demos.bossaNova.snareNotes = [];
+Demos.bossaNova.middleTomNotes = [];
+Demos.bossaNova.floorTomNotes = [];
+Demos.bossaNova.footHH = [];
+Demos.bossaNova.bassNotes = [];
 
 _.each(Demos.bossaNova, function(element) {
 
@@ -555,20 +536,20 @@ Demos.bossaNova.tempo = "65";
 //---------------Trap Demo----------------//
 
 
-    Demos.trap.rimshotNotes = [];
-    Demos.trap.cowbellNotes = [];
-    Demos.trap.splashNotes = [];
-    Demos.trap.crashNotes = [];
-    Demos.trap.rideNotes = [];
-    Demos.trap.openHHNotes = [];
-    Demos.trap.closedHHNotes = [];
-    Demos.trap.highTomNotes = [];
-    Demos.trap.smallTomNotes = [];
-    Demos.trap.snareNotes = [];
-    Demos.trap.middleTomNotes = [];
-    Demos.trap.floorTomNotes = [];
-    Demos.trap.footHH = [];
-    Demos.trap.bassNotes = [];
+Demos.trap.rimshotNotes = [];
+Demos.trap.cowbellNotes = [];
+Demos.trap.splashNotes = [];
+Demos.trap.crashNotes = [];
+Demos.trap.rideNotes = [];
+Demos.trap.openHHNotes = [];
+Demos.trap.closedHHNotes = [];
+Demos.trap.highTomNotes = [];
+Demos.trap.smallTomNotes = [];
+Demos.trap.snareNotes = [];
+Demos.trap.middleTomNotes = [];
+Demos.trap.floorTomNotes = [];
+Demos.trap.footHH = [];
+Demos.trap.bassNotes = [];
 
 _.each(Demos.trap, function(element) {
 
@@ -618,20 +599,20 @@ Demos.trap.tempo = "95";
 //---------------Dubstep Demo----------------//
 
 
-    Demos.dubstep.rimshotNotes = [];
-    Demos.dubstep.cowbellNotes = [];
-    Demos.dubstep.splashNotes = [];
-    Demos.dubstep.crashNotes = [];
-    Demos.dubstep.rideNotes = [];
-    Demos.dubstep.openHHNotes = [];
-    Demos.dubstep.closedHHNotes = [];
-    Demos.dubstep.highTomNotes = [];
-    Demos.dubstep.smallTomNotes = [];
-    Demos.dubstep.snareNotes = [];
-    Demos.dubstep.middleTomNotes = [];
-    Demos.dubstep.floorTomNotes = [];
-    Demos.dubstep.footHH = [];
-    Demos.dubstep.bassNotes = [];
+Demos.dubstep.rimshotNotes = [];
+Demos.dubstep.cowbellNotes = [];
+Demos.dubstep.splashNotes = [];
+Demos.dubstep.crashNotes = [];
+Demos.dubstep.rideNotes = [];
+Demos.dubstep.openHHNotes = [];
+Demos.dubstep.closedHHNotes = [];
+Demos.dubstep.highTomNotes = [];
+Demos.dubstep.smallTomNotes = [];
+Demos.dubstep.snareNotes = [];
+Demos.dubstep.middleTomNotes = [];
+Demos.dubstep.floorTomNotes = [];
+Demos.dubstep.footHH = [];
+Demos.dubstep.bassNotes = [];
 
 _.each(Demos.dubstep, function(element) {
 
@@ -674,20 +655,20 @@ Demos.dubstep.tempo = "137";
 //---------------House Demo----------------//
 
 
-    Demos.house.rimshotNotes = [];
-    Demos.house.cowbellNotes = [];
-    Demos.house.splashNotes = [];
-    Demos.house.crashNotes = [];
-    Demos.house.rideNotes = [];
-    Demos.house.openHHNotes = [];
-    Demos.house.closedHHNotes = [];
-    Demos.house.highTomNotes = [];
-    Demos.house.smallTomNotes = [];
-    Demos.house.snareNotes = [];
-    Demos.house.middleTomNotes = [];
-    Demos.house.floorTomNotes = [];
-    Demos.house.footHH = [];
-    Demos.house.bassNotes = [];
+Demos.house.rimshotNotes = [];
+Demos.house.cowbellNotes = [];
+Demos.house.splashNotes = [];
+Demos.house.crashNotes = [];
+Demos.house.rideNotes = [];
+Demos.house.openHHNotes = [];
+Demos.house.closedHHNotes = [];
+Demos.house.highTomNotes = [];
+Demos.house.smallTomNotes = [];
+Demos.house.snareNotes = [];
+Demos.house.middleTomNotes = [];
+Demos.house.floorTomNotes = [];
+Demos.house.footHH = [];
+Demos.house.bassNotes = [];
 
 _.each(Demos.house, function(element) {
 
@@ -724,10 +705,3 @@ Demos.house.snareNotes[28] = true;
 
 Demos.house.beatName = "House Demo";
 Demos.house.tempo = "125";
-
-
-
-
-
-
-

@@ -1,136 +1,12 @@
   $(document).on("ready", function(){
 
   getTemplates();
-   /*$rimshot = $("#rimshot");
-   $cowbell = $("#cowbell");
-   $splash = $("#splash");
-   $crash = $("#crash");
-   $ride = $("#ride");
-   $openHH = $("#openHH");
-   $closedHH = $("#closedHH");
-   $highTom = $("#high-tom");
-   $smallTom = $("#small-tom");
-   $snare = $("#snare");
-   $middleTom = $("#middle-tom");
-   $floorTom = $("#floor-tom");
-   $HHFoot = $("#HHFoot");
-   $bass = $("#bass");
-
-*/
   var router = new Router;
-  Backbone.history.start()/*
-  //router.navigate("", { trigger: true });
-
-   rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
-   temp = rows.slice(0);
-      
-
-  $('#play-pause').click(function() {
-    if ($('#tempo').val() < 0 || $('#tempo').val() > 400) {
-      alert("you must chose a tempo in between 1 and 400");
-      return;
-    }
-
-    if (currentlyPlaying === true) {
-      _.each(rowIDs, function(element) {
-        window.clearInterval(element);
-      });
-      currentlyPlaying = false;
-      return;
-    }
-    else {
-      play();
-    }
-
-  });
-
-  var mousedown = false;
-
-  /*$('#beat td').on("mousedown", function(event) {
-    event.preventDefault();
-    $(this).toggleClass('selected');
-    mousedown = true;
-  });
-
-  $('#beat td').on("mouseover", function(event) {
-    event.preventDefault();
-    if (mousedown) {
-      $(this).toggleClass('selected');
-    }
-  });
-
-  $('html').on("mouseup", function(event) {
-    event.preventDefault();
-    mousedown = false;
-    if (savedBeat) {
-      savedBeat.mousedown = false;
-    }
-  });
-
-  $('#save').on("click", function() {
-    save();
-  });
-
-  $('#load').on("click", function() {
-    load();
-  });*/
-
-
+  Backbone.history.start()
 });
 
 var notesFromServer;
 var savedBeat;
-/*
-  var save = function() {
-    var notes = {};
-    notes.rimshotNotes = [];
-    notes.cowbellNotes = [];
-    notes.splashNotes = [];
-    notes.crashNotes = [];
-    notes.rideNotes = [];
-    notes.openHHNotes = [];
-    notes.closedHHNotes = [];
-    notes.highTomNotes = [];
-    notes.smallTomNotes = [];
-    notes.snareNotes = [];
-    notes.middleTomNotes = [];
-    notes.floorTomNotes = [];
-    notes.footHH = [];
-    notes.bassNotes = [];
-
-
-    var tableRows = $("#beat tr");
-
-      var counter = 0;
-    _.each(notes, function(eacharray, index) {
-      var tdsArray = $(tableRows[counter]);
-      counter++
-
-        _.each(tdsArray[0].children, function(element) {
-          $element = $(element);
-          if ($element.hasClass('selected') ) {
-            eacharray.push(true);
-          }
-          else {
-            eacharray.push(false);
-          }
-        });
-    });
-    notes.tempo = $('#tempo').val();
-    notes.beatName = $('#name').val();
-    console.log(notes);
-    notesFromServer = notes;
-    savedBeat = new Beat(notes);
-}
-
-var load = function() {
-  $("#loaded-beat").html("");
-  var newBeatView = new BeatView(savedBeat);
-  $("#loaded-beat").append(newBeatView.el);
-  $("body").html("");
-  var newBeatView = new BeatView(savedBeat);
-  $("body").append(newBeatView.el);
-}*/
 
 var calculateTempo = function() {
   var bpm = $('#tempo').val();
@@ -209,22 +85,6 @@ var getTemplates = function(){
 
 }
 
-  var $rimshot;
-  var $cowbell;
-  var $splash;
-  var $ride;
-  var $openHH;
-  var $closedHH;
-  var $highTom;
-  var $smallTom;
-  var $snare;
-  var $middleTom;
-  var $floorTom;
-  var $HHFoot;
-  var $bass;
-  var rows;
-
-
 var playLine = function(currentTD, originalTD, tempNum, audio) {
   currentTD = temp[tempNum];
   if (currentTD[0].nextElementSibling === null) {
@@ -260,49 +120,49 @@ var currentlyPlaying = false;
 var play = function() {
 
   rimshot = $("#rimshot-row")[0].children[0];
- $rimshot = $(rimshot);
+  $rimshot = $(rimshot);
 
- cowbell = $("#cowbell-row")[0].children[0];
- $cowbell = $(cowbell);
+  cowbell = $("#cowbell-row")[0].children[0];
+  $cowbell = $(cowbell);
 
- splash = $("#splash-row")[0].children[0];
- $splash = $(splash);
+  splash = $("#splash-row")[0].children[0];
+  $splash = $(splash);
 
- crash = $("#crash-row")[0].children[0];
- $crash = $(crash);
+  crash = $("#crash-row")[0].children[0];
+  $crash = $(crash);
 
- ride = $("#ride-row")[0].children[0];
- $ride = $(ride);
+  ride = $("#ride-row")[0].children[0];
+  $ride = $(ride);
 
- openHH = $("#openHH-row")[0].children[0];
- $openHH = $(openHH);
+  openHH = $("#openHH-row")[0].children[0];
+  $openHH = $(openHH);
 
- closedHH = $("#closedHH-row")[0].children[0];
- $closedHH = $(closedHH);
+  closedHH = $("#closedHH-row")[0].children[0];
+  $closedHH = $(closedHH);
 
- highTom = $("#high-tom-row")[0].children[0];
- $highTom = $(highTom);
+  highTom = $("#high-tom-row")[0].children[0];
+  $highTom = $(highTom);
 
- smallTom = $("#small-tom-row")[0].children[0];
- $smallTom = $(smallTom);
+  smallTom = $("#small-tom-row")[0].children[0];
+  $smallTom = $(smallTom);
 
- snare = $("#snare-row")[0].children[0];
- $snare = $(snare);
+  snare = $("#snare-row")[0].children[0];
+  $snare = $(snare);
 
- middleTom = $("#middle-tom-row")[0].children[0];
- $middleTom = $(middleTom);
+  middleTom = $("#middle-tom-row")[0].children[0];
+  $middleTom = $(middleTom);
 
- floorTom = $("#floor-tom-row")[0].children[0];
- $floorTom = $(floorTom);
+  floorTom = $("#floor-tom-row")[0].children[0];
+  $floorTom = $(floorTom);
 
- HHFoot = $("#footHH-row")[0].children[0];
- $HHFoot = $(HHFoot);
+  HHFoot = $("#footHH-row")[0].children[0];
+  $HHFoot = $(HHFoot);
 
- bass = $("#bass-row")[0].children[0];
- $bass = $(bass);
+  bass = $("#bass-row")[0].children[0];
+  $bass = $(bass);
 
-   rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
-   temp = rows.slice(0);
+  rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
+  temp = rows.slice(0);
 
   rimshotID = setInterval(function(){playLine(rows[0], rows[0], 0, rimshotAudio)}, calculateTempo());
   cowbellID = setInterval(function(){playLine(rows[1], rows[1], 1, cowbellAudio)}, calculateTempo());
@@ -335,7 +195,6 @@ var play = function() {
   rowIDs.push(bassID);
 
   currentlyPlaying = true;
-
 
 }
 
