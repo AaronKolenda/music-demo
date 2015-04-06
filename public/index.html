@@ -14,8 +14,21 @@
   </head>
 
   <body>
+    <div class="background-cover">
 
-    <a href="/#/demos/latin"><button>Latin Demo</button></a>
+    <header>
+      <h1>Drum Machine - Name TBD</h1>
+      <p>Simple Drum machine built with Javascript. Click on a table cell to create a note in that spot. Or start from one of the existing <a href="/#/demos/">demos</a>. Play, save, and share!</p>
+      <div class="center-link">
+        <a href="">Create New Beat</a>
+      </div>
+      <div class="center-link">
+        <a href="/#/demos/">Demos</a>
+      </div>
+    </header>
+
+
+    <!--<a href="/#/demos/latin"><button>Latin Demo</button></a>
     <a href="/#/demos/rock"><button>Rock Demo</button></a>
     <a href="/#/demos/jazz"><button>Jazz Demo</button></a>
     <a href="/#/demos/funk"><button>Funk Demo</button></a>
@@ -24,13 +37,33 @@
     <a href="/#/demos/bossaNova"><button>Bossa Nova Demo</button></a>
     <a href="/#/demos/trap"><button>Trap Demo</button></a>
     <a href="/#/demos/dubstep"><button>Dubstep Demo</button></a>
-    <a href="/#/demos/house"><button>House Demo</button></a>
+    <a href="/#/demos/house"><button>House Demo</button></a>-->
 
-   <div id="loaded-beat"></div>
+
+   <div id="loaded-beat" class="loaded-beat"></div>
 
    <script type="x-handlebars-template" id="beat-template"> 
 
+   <div class="controls">
+
+   <div class="white-label">Name:
    <input type="text" id="name" value="{{beatName}}"/>
+   </div>
+
+    <div id="play-pause" class="play-pause">
+      <img src="/images/play.png" class="play"/>
+    </div>
+
+    <div class="white-label">Tempo: 
+      <input type="number" value="{{tempo}}" id="tempo" min="1" max="400"/> bpm
+    </div>
+
+    <div class="white-label">
+      <a href="" ><button id="save">Save Beat</button></a>
+    </div>
+
+    </div>
+
     <div class="table-example">
         
     <table id="labels">
@@ -213,11 +246,9 @@
     </table>
   </div>
 
-  <button id="play-pause">Play/Pause</button>
-
-  Tempo: <input type="number" value="{{tempo}}" id="tempo" min="1" max="400"/> bpm
-
-   <button id="save">Save Beat</button>
-
    </script>
+
+   </div>
+ </body>
+ </html>
 

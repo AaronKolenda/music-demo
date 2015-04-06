@@ -19,9 +19,12 @@
             "mousedown #beat td": "mouseDown",
             "mouseover #beat td": "mouseOver",
             "mouseup": "mouseUp",
-            "change #tempo":  "tempoChanged"},
+            "change #tempo":  "tempoChanged",
+            "hover #save":  "saveHover"},
 
   tagName: "div",
+
+  className: "beat-wrapper",
 
   initialize: function(model) {
     this.model = model;
@@ -49,8 +52,9 @@
     ev.preventDefault();
   },
 
-  save: function() {
-
+  save: function(ev) {
+    event.preventDefault()
+    
     if (this.model.get('tempo') < 0 || this.model.get('tempo') > 400) {
       alert("you must chose a tempo in between 1 and 400");
       return;
@@ -107,10 +111,12 @@ playBeat: function() {
         window.clearInterval(element);
       });
       this.model.set('isCurrentlyPlaying', false);
+      $("#play-pause").html('<img src="/images/play.png" class="play"/>');
       return;
     }
     else {
       play();
+      $("#play-pause").html('<img src="/images/stop.png" class="stop"/>');
       this.model.set('isCurrentlyPlaying', true);
     }
   },
