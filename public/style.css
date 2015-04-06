@@ -8,8 +8,9 @@ body {
 	font-size: 0px;
 	margin: 0px;
 	padding: 0px;
-	background-image: url(/images/drumset.jpg);
+	background-image: url(/images/drumset2.jpg);
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 button {
@@ -93,14 +94,14 @@ input {
 }
 
 .background-cover {
-	background: rgba(0,0,0,0.60);
+	background: rgba(0,0,0,0.55);
 	width: 100%;
 	height: 100%;
 	padding-bottom: 10%;
 }
 
 .background-cover .table-example {
-	background: rgba(0,0,0,0.70);
+	background: rgba(0,0,0,0.7);
 }
 
 .center {
