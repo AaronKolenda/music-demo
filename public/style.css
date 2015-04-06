@@ -48,29 +48,29 @@ header a:hover {
 	color: white;
 }
 
-table, td, tr {
-  border: 1px solid black;
-}
-
 table {
 	display: inline-block;
 	vertical-align: top;
-	background-color: white;
 	margin: auto;
 }
 
 td {
-  font-size: 15px;
+  background-color: rgb(207, 250, 244);
+  border: 1px solid black;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
   width: 25px;
   height: 16px;
+  border-radius: 3px;
 }
 
 td:nth-child(4n+4) {
-	border-right: 4px solid darkred;
+	border-right: 4px solid rgb(4, 46, 76);
 }
 
 td:nth-child(16) {
-	border-right: 4px solid red;
+	border-right: 4px solid blue;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -99,6 +99,10 @@ input {
 	padding-bottom: 10%;
 }
 
+.background-cover .table-example {
+	background: rgba(0,0,0,0.70);
+}
+
 .center {
 	text-align: center;
 }
@@ -118,10 +122,6 @@ input {
 	margin: auto;
 }
 
-.beat-divide {
-	border-right: 4px solid darkred;
-}
-
 .beat-wrapper {
 	text-align: center;
 }
@@ -129,10 +129,6 @@ input {
 .loaded-beat {
 	padding-top: 100px;
 	margin: auto;
-}
-
-.measure-divide {
-	border-right: 4px solid red;
 }
 
 .play-pause {
@@ -163,7 +159,7 @@ input {
 
 
 .selected {
-  	background-color: blue;
+  	background-color: rgb(102, 16, 16);
 }
 
 .stop {
@@ -181,6 +177,9 @@ input {
 	margin: auto;
 	text-align: center;
 	margin-top: 40px;
+	width: 90%;
+  	border-radius: 9px;
+  	padding: 20px 10px;
 }
 
 .highlight {
