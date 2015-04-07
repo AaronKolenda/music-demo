@@ -83,6 +83,9 @@ var getTemplates = function(){
   var beatString = $("#beat-template").text()
   templates.beatInfo = Handlebars.compile(beatString);
 
+  var demoString = $("#demo-template").text()
+  templates.demoInfo = Handlebars.compile(demoString);
+
 }
 
 var playLine = function(currentTD, originalTD, tempNum, audio) {

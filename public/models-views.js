@@ -12,6 +12,22 @@
 
 });
 
+ var DemoView = Backbone.View.extend({
+
+  tagName: "div",
+
+  className: "demo-wrapper",
+
+  initialize: function(model) {
+    this.render();
+  },
+
+  render: function() {
+    this.$el.html(templates.demoInfo());
+  },
+
+});
+
  var BeatView = Backbone.View.extend({
 
   events: { "click #save": "save",
@@ -136,6 +152,7 @@ var Router = Backbone.Router.extend({
     "user/:user_id": "showBeatsList",
     "user/:user_id/:beat_name": "showBeat",
     "demos/:demo": "displayDemo",
+    "demopage": "displayDemoPage",
   },
 
   displayLanding: function(){
@@ -178,6 +195,13 @@ var Router = Backbone.Router.extend({
     var demoView = new BeatView(demoModel);
     console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
+  },
+
+  displayDemoPage: function(){
+    console.log('in function')
+    $("#loaded-beat").html("");
+    var demoPageView = new DemoView;
+    $("#loaded-beat").append(demoPageView.$el);
   },
 
   showBeatsList: function() {

@@ -18,26 +18,60 @@
 
     <header>
       <h1>Drum Machine - Name TBD</h1>
-      <p>Simple Drum machine built with Javascript. Click on a table cell to create a note in that spot. Or start from one of the existing <a href="/#/demos/">demos</a>. Play, save, and share!</p>
+      <p>Simple Drum machine built with Javascript. Click on a table cell to create a note in that spot. Or start from one of the existing <a href="/#/demopage">demos</a>. Play, save, and share!</p>
       <div class="center-link">
         <a href="">Create New Beat</a>
       </div>
       <div class="center-link">
-        <a href="/#/demos/">Demos</a>
+        <a href="/#/demopage">Demos</a>
       </div>
     </header>
 
+   <script type="x-handlebars-template" id="demo-template">
 
-    <!--<a href="/#/demos/latin"><button>Latin Demo</button></a>
-    <a href="/#/demos/rock"><button>Rock Demo</button></a>
-    <a href="/#/demos/jazz"><button>Jazz Demo</button></a>
-    <a href="/#/demos/funk"><button>Funk Demo</button></a>
-    <a href="/#/demos/metal"><button>Metal Demo</button></a>
-    <a href="/#/demos/punk"><button>Punk Demo</button></a>
-    <a href="/#/demos/bossaNova"><button>Bossa Nova Demo</button></a>
-    <a href="/#/demos/trap"><button>Trap Demo</button></a>
-    <a href="/#/demos/dubstep"><button>Dubstep Demo</button></a>
-    <a href="/#/demos/house"><button>House Demo</button></a>-->
+    <a class="demo-wrap" href="/#/demos/bossaNova">
+      <img src="/images/bossa-nova.png"/>
+      <p class="no-margin">Bossa Nova</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/dubstep">
+      <img src="/images/dubstep.png"/>
+      <p class="no-margin">Dubstep</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/funk">
+      <img src="/images/funk.png"/>
+      <p class="no-margin">Funk</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/house">
+      <img src="/images/house.png"/>
+      <p class="no-margin">House</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/jazz">
+      <img src="/images/jazz.png"/>
+      <p class="no-margin">Jazz</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/latin">
+      <img src="/images/latin.png"/>
+      <p class="no-margin">Latin</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/metal">
+      <img src="/images/metal.png"/>
+      <p class="no-margin">Metal</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/punk">
+      <img src="/images/punk.png"/>
+      <p class="no-margin">Punk</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/rock">
+      <img src="/images/rock.png"/>
+      <p class="no-margin">Rock</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/trap">
+      <img src="/images/trap.png"/>
+      <p class="no-margin">Trap</p>
+    </a>
+
+    <div class="credit">Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/icons8" title="Icons8">Icons8</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+  </script>
 
 
    <div id="loaded-beat" class="loaded-beat"></div>

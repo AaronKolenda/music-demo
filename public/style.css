@@ -104,14 +104,23 @@ input {
 	background: rgba(0,0,0,0.7);
 }
 
+.block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 0px;
+
+}
+
 .center {
 	text-align: center;
 }
 
 .center-link {
 	display: inline-block;
-  	width: 40%;
-  	margin: auto;
+  width: 40%;
+  margin: auto;
 }
 
 .col1 {
@@ -123,6 +132,40 @@ input {
 	margin: auto;
 }
 
+.credit {
+  font-size: 14px;
+  background: rgba(255,255,255,0.5);
+  margin-top: 100px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  width: 30%;
+  margin-left: auto;
+  border-radius: 9px;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.demo-wrap {
+  background: rgba(255,255,255,0.5);
+  border-radius: 9px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  color: black;
+  width: 30%;
+}
+
+.demo-wrapper {
+  text-align: center;
+}
+
 .beat-wrapper {
 	text-align: center;
 }
@@ -132,12 +175,17 @@ input {
 	margin: auto;
 }
 
+.no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .play-pause {
 	display: inline-block;
 	margin-right: 102px;
-  	margin-left: 102px;
-  	position: relative;
-  	left: 30px;
+	margin-left: 102px;
+	position: relative;
+	left: 30px;
 }
 
 .play {
@@ -158,20 +206,19 @@ input {
 	background-color: rgb(138, 185, 241);
 }
 
-
 .selected {
   	background-color: rgb(102, 16, 16);
 }
 
 .stop {
 	height: 75px;
-  	padding: 15px;
+  padding: 15px;
 	width: 75px;
-  	vertical-align: middle;
-  	position: relative;
-  	bottom: 6px;
-  	background-color: white;
-  	border-radius: 100px;
+	vertical-align: middle;
+	position: relative;
+	bottom: 6px;
+	background-color: white;
+	border-radius: 100px;
 }
 
 .table-example {
@@ -179,8 +226,8 @@ input {
 	text-align: center;
 	margin-top: 40px;
 	width: 90%;
-  	border-radius: 9px;
-  	padding: 20px 10px;
+	border-radius: 9px;
+	padding: 20px 10px;
 }
 
 .highlight {
