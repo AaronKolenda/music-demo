@@ -209,8 +209,10 @@ input {
 .result {
   position: absolute;
   top: 300px;
-  margin-left: 10%;
-  margin-right: 10%;
+  left: 59px;
+  right: 59px;
+  margin-left: auto;
+  margin-right: auto;
   background: rgba(4, 46, 76, 0.875);
   padding: 5px;
   border-radius: 9px;
@@ -218,6 +220,12 @@ input {
   font-size: 30px;
   font-family: Arial, sans-serif;
   text-align: center;
+}
+
+.result input {
+  display: block;
+  width: 30%;
+  margin: auto;
 }
 
 .selected {
@@ -255,4 +263,14 @@ input {
   display: inline-block;
   margin: auto;
   width: 25%;
+}
+
+#twitter-widget-0 {
+  position: relative;
+  top: 5px;
+  left: 50px;
+}
+
+#widget {
+    text-align: center;
 }
