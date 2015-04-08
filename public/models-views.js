@@ -28,6 +28,30 @@
 
 });
 
+var ResultView = Backbone.View.extend({
+
+  events: { "click #close": "closeResult"},
+
+  tagName: "div",
+
+  className: "result-wrapper",
+
+  initialize: function(url) {
+    this.url = url;
+    this.render();
+  },
+
+  render: function() {
+    this.$el.html(templates.resultInfo({ url: this.url }));
+  },
+
+  closeResult: function(ev) {
+    ev.preventDefault();
+    this.$el.hide();
+  }
+
+});
+
  var BeatView = Backbone.View.extend({
 
   events: { "click #save": "save",
@@ -111,9 +135,25 @@
         });
     });
     notes.tempo = $('#tempo').val();
-    notes.beatName = $('#name').val();
-    console.log(notes);     
-    //notesFromServer = notes;
+    notes.beatName = $('#name').val(); 
+    console.log(notes);
+
+    $.ajax({
+      url: "http://shelf-life.herokuapp.com/beat",
+      method: "POST",
+      data: notes,
+      success: function(data) {
+        var beatUrlString = ("localhost:3000/#/beat/" + data.id);
+        var resultView = new ResultView(beatUrlString);
+        console.log(resultView);
+        $('body').append(resultView.$el);
+      },
+      error: function() {
+        console.log("post failed");
+      }
+
+    });
+
 },
 
 playBeat: function() {
@@ -138,7 +178,6 @@ playBeat: function() {
   },
 
 tempoChanged: function() {
-  console.log("in tempo changed");
   var newTempo = $("#tempo").val();
   this.model.set('tempo', newTempo);
 }
@@ -149,10 +188,9 @@ var Router = Backbone.Router.extend({
 
   routes: {
     "": "displayLanding",
-    "user/:user_id": "showBeatsList",
-    "user/:user_id/:beat_name": "showBeat",
     "demos/:demo": "displayDemo",
     "demopage": "displayDemoPage",
+    "beat/:id": "displaySavedBeat"
   },
 
   displayLanding: function(){
@@ -185,7 +223,6 @@ var Router = Backbone.Router.extend({
 
     var demoModel = new Beat(allNotes);
     var demoView = new BeatView(demoModel);
-    console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
   },
 
@@ -193,24 +230,60 @@ var Router = Backbone.Router.extend({
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos[demo]);
     var demoView = new BeatView(demoModel);
-    console.log(demoView);
     $("#loaded-beat").append(demoView.$el);
   },
 
   displayDemoPage: function(){
-    console.log('in function')
     $("#loaded-beat").html("");
     var demoPageView = new DemoView;
     $("#loaded-beat").append(demoPageView.$el);
   },
 
-  showBeatsList: function() {
+  displaySavedBeat: function(id){
+    $.ajax({
+      url: "http://shelf-life.herokuapp.com/beat/" + id,
+      method: "GET",
+      success: function(data) {
 
-  },
+        var newData = _.each(data, function(value, key) {
 
-  showBeat: function(page) {
+          if (key !== "beatName" && key !== "tempo") {
+
+             _.each(value, function(element, index) {
+
+              if (element === "true") {
+                console.log("element is ", element);
+                element = true;
+                console.log("now element is ", element);
+              }
+              if (element === "false") {
+                console.log("false element is ", element);
+                element = false;
+                console.log("now false element is ", element);
+              }
+
+              value[index] = element;
+            });
+
+          }
+
+        });
+
+        console.log(newData);
+
+        $("#loaded-beat").html("");
+        var savedBeatModel = new Beat(data);
+        var savedBeatView = new BeatView(savedBeatModel);
+        $("#loaded-beat").append(savedBeatView.$el);
+      },
+      error: function() {
+        console.log("get failed");
+      }
+
+    });
+
     
-  }
+  },
 
 });
 

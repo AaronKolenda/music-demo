@@ -86,6 +86,9 @@ var getTemplates = function(){
   var demoString = $("#demo-template").text()
   templates.demoInfo = Handlebars.compile(demoString);
 
+  var resultString = $("#result-template").text()
+  templates.resultInfo = Handlebars.compile(resultString);
+
 }
 
 var playLine = function(currentTD, originalTD, tempNum, audio) {
