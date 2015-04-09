@@ -77,30 +77,29 @@ var ResultView = Backbone.View.extend({
   },
 
   changeTime: function() {
-    //this resets the time back to 4/4 before changing it
 
-        var oldTime = this.model.get('timeSig');
-            console.log(oldTime);
-    var newModel = {};   //this will be the new model to render after timeSig changed
-    newModel.rimshotNotes = [];
-    newModel.cowbellNotes = [];
-    newModel.splashNotes = [];
-    newModel.crashNotes = [];
-    newModel.rideNotes = [];
-    newModel.openHHNotes = [];
-    newModel.closedHHNotes = [];
-    newModel.highTomNotes = [];
-    newModel.smallTomNotes = [];
-    newModel.snareNotes = [];
-    newModel.middleTomNotes = [];
-    newModel.floorTomNotes = [];
-    newModel.footHH = [];
-    newModel.bassNotes = [];
+    var oldTime = this.model.get('timeSig');
+
+    var newNotes = {};   //this will be the new model to render after timeSig changed
+    newNotes.rimshotNotes = [];
+    newNotes.cowbellNotes = [];
+    newNotes.splashNotes = [];
+    newNotes.crashNotes = [];
+    newNotes.rideNotes = [];
+    newNotes.openHHNotes = [];
+    newNotes.closedHHNotes = [];
+    newNotes.highTomNotes = [];
+    newNotes.smallTomNotes = [];
+    newNotes.snareNotes = [];
+    newNotes.middleTomNotes = [];
+    newNotes.floorTomNotes = [];
+    newNotes.footHH = [];
+    newNotes.bassNotes = [];
 
     var tableRows = $("#beat tr");
 
       var counter = 0;
-    _.each(newModel, function(eacharray, index) {
+    _.each(newNotes, function(eacharray, index) {
       var tdsArray = $(tableRows[counter]);
       counter++
 
@@ -114,17 +113,15 @@ var ResultView = Backbone.View.extend({
           }
         });
     });
-    newModel.tempo = $('#tempo').val();
-    newModel.beatName = $('#name').val();
-    newModel.timeSig = $('#timeSig').val();
+    newNotes.tempo = $('#tempo').val();
+    newNotes.beatName = $('#name').val();
+    newNotes.timeSig = $('#timeSig').val();
 
-    var newNewModel = new Beat(newModel);
+    var newModel = new Beat(newNotes);
 
-    this.model = newNewModel;
+    this.model = newModel;
 
-    console.log(this.model);
-
-
+    //this resets the time back to 4/4 before changing it
 
     if (oldTime === "3") {
     _.each(this.model.attributes, function(value, key) {
@@ -153,7 +150,9 @@ var ResultView = Backbone.View.extend({
           }
       });
     }
+    
     //this now sets the new time
+
     if ($("#timeSig").val() === "4") {
       this.render();
     }
