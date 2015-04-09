@@ -349,6 +349,7 @@ var Router = Backbone.Router.extend({
     var demoModel = new Beat(Demos[demo]);
     var demoView = new BeatView(demoModel);
     $("#loaded-beat").append(demoView.$el);
+    $("#timeSig").val(demoModel.get('timeSig'));
   },
 
   displayDemoPage: function(){

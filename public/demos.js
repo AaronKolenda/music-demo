@@ -174,52 +174,46 @@ Demos.jazz.bassNotes = [];
 
 _.each(Demos.jazz, function(element) {
 
-      _(32).times(function(){
+      _(24).times(function(){
         element.push(false);
       });
     })
 
 Demos.jazz.bassNotes[0] = true;
-Demos.jazz.bassNotes[8] = true;
-Demos.jazz.bassNotes[16] = true;
-Demos.jazz.bassNotes[24] = true;
+Demos.jazz.bassNotes[6] = true;
+Demos.jazz.bassNotes[12] = true;
+Demos.jazz.bassNotes[18] = true;
 
 Demos.jazz.splashNotes[0] = true;
 
-Demos.jazz.rideNotes[4] = true;
-Demos.jazz.rideNotes[7] = true;
+Demos.jazz.openHHNotes[21] = true;
+
+Demos.jazz.rideNotes[3] = true;
+Demos.jazz.rideNotes[5] = true;
+Demos.jazz.rideNotes[6] = true;
 Demos.jazz.rideNotes[9] = true;
+Demos.jazz.rideNotes[11] = true;
 Demos.jazz.rideNotes[12] = true;
-Demos.jazz.rideNotes[14] = true;
 Demos.jazz.rideNotes[15] = true;
-Demos.jazz.rideNotes[16] = true;
-Demos.jazz.rideNotes[20] = true;
-Demos.jazz.rideNotes[23] = true;
-Demos.jazz.rideNotes[24] = true;
-Demos.jazz.rideNotes[25] = true;
-Demos.jazz.rideNotes[27] = true;
-Demos.jazz.rideNotes[30] = true;
+Demos.jazz.rideNotes[17] = true;
+Demos.jazz.rideNotes[18] = true;
 
-Demos.jazz.smallTomNotes[18] = true;
-Demos.jazz.smallTomNotes[19] = true;
+Demos.jazz.smallTomNotes[23] = true;
 
-Demos.jazz.snareNotes[4] = true;
-Demos.jazz.snareNotes[11] = true;
-Demos.jazz.snareNotes[14] = true;
+Demos.jazz.snareNotes[3] = true;
+Demos.jazz.snareNotes[9] = true;
+Demos.jazz.snareNotes[15] = true;
+Demos.jazz.snareNotes[19] = true;
 Demos.jazz.snareNotes[20] = true;
-Demos.jazz.snareNotes[23] = true;
-Demos.jazz.snareNotes[26] = true;
-Demos.jazz.snareNotes[29] = true;
-Demos.jazz.snareNotes[31] = true;
+Demos.jazz.snareNotes[22] = true;
 
-Demos.jazz.footHH[4] = true;
-Demos.jazz.footHH[12] = true;
-Demos.jazz.footHH[20] = true;
-Demos.jazz.footHH[28] = true;
+Demos.jazz.footHH[3] = true;
+Demos.jazz.footHH[9] = true;
+Demos.jazz.footHH[15] = true;
 
 Demos.jazz.beatName = "Jazz Demo";
 Demos.jazz.tempo = "80";
-Demos.jazz.timeSig = "4";
+Demos.jazz.timeSig = "3";
 
 
 //---------------Funk Demo----------------//
