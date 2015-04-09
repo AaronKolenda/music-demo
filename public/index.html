@@ -17,7 +17,7 @@
     <div class="background-cover">
 
     <header>
-      <h1>Drum Machine - Name TBD</h1>
+      <h1>HTML5 Drum Machine (Name TBD)</h1>
       <p>Simple Drum machine built with Javascript. Click on a table cell to create a note in that spot. Or start from one of the existing <a href="/#/demopage">demos</a>. Play, save, and share!</p>
       <div class="center-link">
         <a href="">Create New Beat</a>
@@ -36,8 +36,8 @@
       <a class="twitter-share-button"
          href="https://twitter.com/share"
         data-url="{{url}}"
-        data-via="aay440"
-        data-text="Check out this drum beat I made using Drum Scrolls {{url}}">
+        data-via=""
+        data-text="Check out this drum beat I made! {{url}}">
       Tweet
       </a>
       <script>
@@ -116,6 +116,15 @@
 
     <div class="white-label">
       <a href="" ><button id="save">Save Beat</button></a>
+    </div>
+
+    <div class="white-label">Time Signature: 
+      <select id="timeSig">
+        <option value="4">4/4</option>
+        <option value="3">6/8</option>
+        <option value="5">5/4</option>
+        <option value="7">7/4</option>
+      </select>
     </div>
 
     </div>

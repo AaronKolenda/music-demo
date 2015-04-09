@@ -87,6 +87,8 @@ Demos.latin.smallTomNotes[22] = true;
 
 Demos.latin.beatName = "Latin Demo";
 Demos.latin.tempo = "100";
+Demos.latin.timeSig = "4";
+
 
 //---------------Rock Demo----------------//
 
@@ -150,6 +152,7 @@ Demos.rock.crashNotes[0] = true;
 
 Demos.rock.beatName = "Rock Demo";
 Demos.rock.tempo = "100";
+Demos.rock.timeSig = "4";
 
 //---------------Jazz Demo----------------//
 
@@ -216,6 +219,7 @@ Demos.jazz.footHH[28] = true;
 
 Demos.jazz.beatName = "Jazz Demo";
 Demos.jazz.tempo = "80";
+Demos.jazz.timeSig = "4";
 
 
 //---------------Funk Demo----------------//
@@ -289,6 +293,7 @@ Demos.funk.openHHNotes[13] = true;
 
 Demos.funk.beatName = "Funk Demo";
 Demos.funk.tempo = "110";
+Demos.funk.timeSig = "4";
 
 //---------------Metal Demo----------------//
 
@@ -370,6 +375,7 @@ Demos.metal.crashNotes[24] = true;
 
 Demos.metal.beatName = "Metal Demo";
 Demos.metal.tempo = "120";
+Demos.metal.timeSig = "4";
 
 //---------------Punk Demo----------------//
 
@@ -446,6 +452,7 @@ Demos.punk.crashNotes[0] = true;
 
 Demos.punk.beatName = "Punk Demo";
 Demos.punk.tempo = "170";
+Demos.punk.timeSig = "4";
 
 //---------------Bossa Nova Demo----------------//
 
@@ -532,6 +539,7 @@ Demos.bossaNova.smallTomNotes[23] = true;
 
 Demos.bossaNova.beatName = "Bossa Nova Demo";
 Demos.bossaNova.tempo = "65";
+Demos.bossaNova.timeSig = "4";
 
 //---------------Trap Demo----------------//
 
@@ -595,6 +603,7 @@ Demos.trap.bassNotes[30] = true;
 
 Demos.trap.beatName = "Trap Demo";
 Demos.trap.tempo = "95";
+Demos.trap.timeSig = "4";
 
 //---------------Dubstep Demo----------------//
 
@@ -651,6 +660,7 @@ Demos.dubstep.middleTomNotes[30] = true;
 
 Demos.dubstep.beatName = "Dubstep Demo";
 Demos.dubstep.tempo = "137";
+Demos.dubstep.timeSig = "4";
 
 //---------------House Demo----------------//
 
@@ -705,3 +715,4 @@ Demos.house.snareNotes[28] = true;
 
 Demos.house.beatName = "House Demo";
 Demos.house.tempo = "125";
+Demos.house.timeSig = "4";

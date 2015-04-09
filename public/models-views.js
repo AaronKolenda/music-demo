@@ -60,7 +60,8 @@ var ResultView = Backbone.View.extend({
             "mouseover #beat td": "mouseOver",
             "mouseup": "mouseUp",
             "change #tempo":  "tempoChanged",
-            "hover #save":  "saveHover"},
+            "hover #save":  "saveHover",
+            "change #timeSig": "changeTime"},
 
   tagName: "div",
 
@@ -73,6 +74,76 @@ var ResultView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(templates.beatInfo(this.model.viewDetails()));
+  },
+
+  changeTime: function() {
+    //this resets the time back to 4/4 before changing it
+    var oldTime = this.model.get('timeSig');
+    if (oldTime === "3") {
+    _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+            _(8).times(function(){ 
+              value.push(false); 
+            });
+          }
+      });
+    }
+    if (oldTime === "5") {
+    _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+            _(12).times(function(){ 
+              value.push(false); 
+            });
+          }
+      });
+    }
+    if (oldTime === "7") {
+    _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+            _(4).times(function(){ 
+              value.push(false); 
+            });
+          }
+      });
+    }
+    //this now sets the new time
+    if ($("#timeSig").val() === "4") {
+      this.render();
+    }
+    if ($("#timeSig").val() === "3") {
+      var newData = _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+            console.log(value);
+            _(8).times(function(){ 
+              value.pop(); 
+            });
+          }
+      });
+    }
+    if ($("#timeSig").val() === "5") {
+      var newData = _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying") {
+            _(12).times(function(){ 
+              value.pop(); 
+            });
+          }
+      });
+    }
+    if ($("#timeSig").val() === "7") {
+      var newData = _.each(this.model.attributes, function(value, key) {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying") {
+            _(4).times(function(){ 
+              value.pop(); 
+            });
+          }
+      });
+    }
+
+    this.model.set('timeSig', $("#timeSig").val());
+
+    this.render();
+    $("#timeSig").val(this.model.get('timeSig'));
+
   },
 
   mouseDown: function(ev) {
@@ -136,6 +207,7 @@ var ResultView = Backbone.View.extend({
     });
     notes.tempo = $('#tempo').val();
     notes.beatName = $('#name').val(); 
+    notes.timeSig = $('#timeSig').val(); 
     console.log(notes);
 
     $.ajax({
