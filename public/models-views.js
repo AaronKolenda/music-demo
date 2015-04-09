@@ -78,7 +78,54 @@ var ResultView = Backbone.View.extend({
 
   changeTime: function() {
     //this resets the time back to 4/4 before changing it
-    var oldTime = this.model.get('timeSig');
+
+        var oldTime = this.model.get('timeSig');
+            console.log(oldTime);
+    var newModel = {};   //this will be the new model to render after timeSig changed
+    newModel.rimshotNotes = [];
+    newModel.cowbellNotes = [];
+    newModel.splashNotes = [];
+    newModel.crashNotes = [];
+    newModel.rideNotes = [];
+    newModel.openHHNotes = [];
+    newModel.closedHHNotes = [];
+    newModel.highTomNotes = [];
+    newModel.smallTomNotes = [];
+    newModel.snareNotes = [];
+    newModel.middleTomNotes = [];
+    newModel.floorTomNotes = [];
+    newModel.footHH = [];
+    newModel.bassNotes = [];
+
+    var tableRows = $("#beat tr");
+
+      var counter = 0;
+    _.each(newModel, function(eacharray, index) {
+      var tdsArray = $(tableRows[counter]);
+      counter++
+
+        _.each(tdsArray[0].children, function(element) {
+          $element = $(element);
+          if ($element.hasClass('selected') ) {
+            eacharray.push(true);
+          }
+          else {
+            eacharray.push(false);
+          }
+        });
+    });
+    newModel.tempo = $('#tempo').val();
+    newModel.beatName = $('#name').val();
+    newModel.timeSig = $('#timeSig').val();
+
+    var newNewModel = new Beat(newModel);
+
+    this.model = newNewModel;
+
+    console.log(this.model);
+
+
+
     if (oldTime === "3") {
     _.each(this.model.attributes, function(value, key) {
           if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
@@ -113,7 +160,6 @@ var ResultView = Backbone.View.extend({
     if ($("#timeSig").val() === "3") {
       var newData = _.each(this.model.attributes, function(value, key) {
           if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
-            console.log(value);
             _(8).times(function(){ 
               value.pop(); 
             });
@@ -317,6 +363,7 @@ var Router = Backbone.Router.extend({
       method: "GET",
       success: function(data) {
 
+        //this converts the strings that were stored back into booleans
         var newData = _.each(data, function(value, key) {
 
           if (key !== "beatName" && key !== "tempo") {
@@ -347,6 +394,7 @@ var Router = Backbone.Router.extend({
         var savedBeatModel = new Beat(data);
         var savedBeatView = new BeatView(savedBeatModel);
         $("#loaded-beat").append(savedBeatView.$el);
+        $("#timeSig").val(savedBeatModel.get('timeSig'));
       },
       error: function() {
         console.log("get failed");
