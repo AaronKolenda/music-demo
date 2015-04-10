@@ -51,6 +51,10 @@
 
    <script type="x-handlebars-template" id="demo-template">
 
+    <a class="demo-wrap" href="/#/demos/blues">
+      <img src="/images/blues.png"/>
+      <p class="no-margin">Blues</p>
+    </a>
     <a class="demo-wrap" href="/#/demos/bossaNova">
       <img src="/images/bossa-nova.png"/>
       <p class="no-margin">Bossa Nova</p>
@@ -62,6 +66,10 @@
     <a class="demo-wrap" href="/#/demos/funk">
       <img src="/images/funk.png"/>
       <p class="no-margin">Funk</p>
+    </a>
+    <a class="demo-wrap" href="/#/demos/hipHop">
+      <img src="/images/hip-hop.png"/>
+      <p class="no-margin">Hip Hop</p>
     </a>
     <a class="demo-wrap" href="/#/demos/house">
       <img src="/images/house.png"/>
@@ -102,28 +110,35 @@
 
    <div class="controls">
 
-   <div class="white-label">Name:
+   <div class="white-label extra-width">Name:
    <input type="text" id="name" value="{{beatName}}"/>
    </div>
 
-    <div id="play-pause" class="play-pause white-label">
+    <div id="play-pause" class="play-pause white-label play-width">
       <img src="/images/play.png" class="play"/>
     </div>
 
-    <div class="white-label">Tempo: 
+    <div class="white-label extra-width">Tempo: 
       <input type="number" value="{{tempo}}" id="tempo" min="1" max="400"/> bpm
     </div>
 
-    <div class="white-label">
+    <div class="white-label save-width">
       <a href="" ><button id="save">Save Beat</button></a>
     </div>
 
-    <div class="white-label">Time Signature: 
+    <div class="white-label extra-width">Time Signature: 
       <select id="timeSig">
         <option value="4">4/4</option>
         <option value="3">6/8</option>
         <option value="5">5/4</option>
         <option value="7">7/4</option>
+      </select>
+    </div>
+
+    <div class="white-label extra-width">Drums: 
+      <select id="instrument">
+        <option value="acoustic">Acoustic</option>
+        <option value="electronic">Electronic</option>
       </select>
     </div>
 
@@ -307,6 +322,228 @@
         </tr>
         <tr>
             <td class="col1">Bass</td>
+        </tr>
+    </table>
+  </div>
+
+   </script>
+
+   <script type="x-handlebars-template" id="beat-electronic-template"> 
+
+   <div class="controls">
+
+   <div class="white-label extra-width">Name:
+   <input type="text" id="name" value="{{beatName}}"/>
+   </div>
+
+    <div id="play-pause" class="play-pause white-label play-width">
+      <img src="/images/play.png" class="play"/>
+    </div>
+
+    <div class="white-label extra-width">Tempo: 
+      <input type="number" value="{{tempo}}" id="tempo" min="1" max="400"/> bpm
+    </div>
+
+    <div class="white-label save-width">
+      <a href="" ><button id="save">Save Beat</button></a>
+    </div>
+
+    <div class="white-label extra-width">Time Signature: 
+      <select id="timeSig">
+        <option value="4">4/4</option>
+        <option value="3">6/8</option>
+        <option value="5">5/4</option>
+        <option value="7">7/4</option>
+      </select>
+    </div>
+
+    <div class="white-label extra-width">Drums: 
+      <select id="instrument">
+        <option value="acoustic">Acoustic</option>
+        <option value="electronic">Electronic</option>
+      </select>
+    </div>
+
+    </div>
+
+    <div class="table-example">
+        
+    <table id="labels">
+        <tr>
+            <td class="col1">Clap</td>
+        </tr>
+        <tr>
+            <td class="col1">Shaker</td>
+        </tr>
+        <tr>
+            <td class="col1">Cymbal</td>
+        </tr>
+        <tr>
+            <td class="col1">Open Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Closed Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 1</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 2</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 3</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom - Analog</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom - Lo-fi</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 1</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 2</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 3</td>
+        </tr>
+    </table>
+
+    
+       
+    <table id="beat">
+
+      <tr id="rimshot-row">
+        {{#each rimshotNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="cowbell-row">
+        {{#each cowbellNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr> 
+
+      <tr id="splash-row">
+        {{#each splashNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="crash-row">
+        {{#each crashNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="ride-row">
+        {{#each rideNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="openHH-row">
+        {{#each openHHNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="closedHH-row">
+        {{#each closedHHNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="high-tom-row">
+        {{#each highTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="small-tom-row">
+        {{#each smallTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="snare-row">
+        {{#each snareNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="middle-tom-row">
+        {{#each middleTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="floor-tom-row">
+        {{#each floorTomNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="footHH-row">
+        {{#each footHH}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+
+      <tr id="bass-row">
+        {{#each bassNotes}}
+        <td {{#if this}}class="selected"{{/if}}></td>
+        {{/each}}
+      </tr>
+    </table>
+
+    <table id="labels">
+        <tr>
+            <td class="col1">Clap</td>
+        </tr>
+        <tr>
+            <td class="col1">Shaker</td>
+        </tr>
+        <tr>
+            <td class="col1">Cymbal</td>
+        </tr>
+        <tr>
+            <td class="col1">Open Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Closed Hi-Hat</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 1</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 2</td>
+        </tr>
+        <tr>
+            <td class="col1">Snare 3</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom - Analog</td>
+        </tr>
+        <tr>
+            <td class="col1">Tom - Lo-fi</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 1</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 2</td>
+        </tr>
+        <tr>
+            <td class="col1">Kick 3</td>
         </tr>
     </table>
   </div>

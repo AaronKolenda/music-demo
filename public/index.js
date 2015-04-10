@@ -5,8 +5,8 @@
   Backbone.history.start()
 });
 
-var notesFromServer;
-var savedBeat;
+//var notesFromServer;
+//var savedBeat;
 
 var calculateTempo = function() {
   var bpm = $('#tempo').val();
@@ -18,6 +18,9 @@ var calculateTempo = function() {
 var turnOffHighlight = function(td) {
   td.removeClass('highlight');
 }
+
+//bring in all the audio files with howl.js
+//acoustic drums
 
 var crashAudio = new Howl({
   urls: ['samples/crash.mp3'],
@@ -76,12 +79,74 @@ var highTomAudio = new Howl({
   volume: 0.7
 });
 
+//electronic drums
+
+var eclapAudio = new Howl({
+  urls: ['samples/electronic/eclap.mp3'],
+  volume: 0.6
+});
+var ecymbalAudio = new Howl({
+  urls: ['samples/electronic/ecymbal.mp3'],
+  volume: 1.0
+});
+var eclosedHHAudio = new Howl({
+  urls: ['samples/electronic/eclosedHH.mp3'],
+  volume: 0.4
+});
+var esnare1Audio = new Howl({
+  urls: ['samples/electronic/esnare1.mp3'],
+  volume: 0.9
+});
+var ekick1Audio = new Howl({
+  urls: ['samples/electronic/ekick1.mp3'],
+  volume: 1.0
+});
+var ekick2Audio = new Howl({
+  urls: ['samples/electronic/ekick2.mp3'],
+  volume: 1.0
+});
+var ekick3Audio = new Howl({
+  urls: ['samples/electronic/ekick3.mp3'],
+  volume: 1.0
+});
+var eopenHHAudio = new Howl({
+  urls: ['samples/electronic/eopenHH.mp3'],
+  volume: 1.0
+});
+var eshakerAudio = new Howl({
+  urls: ['samples/electronic/eshaker.mp3'],
+  volume: 0.5
+});
+var esnare3Audio = new Howl({
+  urls: ['samples/electronic/esnare3.mp3'],
+  volume: 1.0
+});
+var esnare2Audio = new Howl({
+  urls: ['samples/electronic/esnare2.mp3'],
+  volume: 0.9
+});
+var etom1Audio = new Howl({
+  urls: ['samples/electronic/etom1.mp3'],
+  volume: 1.0
+});
+var etomanalogAudio = new Howl({
+  urls: ['samples/electronic/etomanalog.mp3'],
+  volume: 0.9
+});
+var etomlofiAudio = new Howl({
+  urls: ['samples/electronic/etomlofi.mp3'],
+  volume: 0.6
+});
+
 var templates = {};
 
 var getTemplates = function(){
 
   var beatString = $("#beat-template").text()
   templates.beatInfo = Handlebars.compile(beatString);
+
+  var beatElString = $("#beat-electronic-template").text()
+  templates.beatElectronicInfo = Handlebars.compile(beatElString);
 
   var demoString = $("#demo-template").text()
   templates.demoInfo = Handlebars.compile(demoString);
@@ -123,7 +188,7 @@ var rowIDs = [];
 
 var currentlyPlaying = false;
 
-var play = function() {
+var play = function(instrumentGroup) {
 
   rimshot = $("#rimshot-row")[0].children[0];
   $rimshot = $(rimshot);
@@ -170,6 +235,8 @@ var play = function() {
   rows = [$rimshot, $cowbell, $splash, $crash, $ride, $openHH, $closedHH, $highTom, $smallTom, $snare, $middleTom, $floorTom, $HHFoot, $bass];
   temp = rows.slice(0);
 
+  if (instrumentGroup === "acoustic") {
+
   rimshotID = setInterval(function(){playLine(rows[0], rows[0], 0, rimshotAudio)}, calculateTempo());
   cowbellID = setInterval(function(){playLine(rows[1], rows[1], 1, cowbellAudio)}, calculateTempo());
   splashID = setInterval(function(){playLine(rows[2], rows[2], 2, splashAudio)}, calculateTempo());
@@ -184,6 +251,27 @@ var play = function() {
   floorTomID = setInterval(function(){playLine(rows[11], rows[11], 11, floorTomAudio)}, calculateTempo());
   hhFootID = setInterval(function(){playLine(rows[12], rows[12], 12, footHHAudio)}, calculateTempo());
   bassID = setInterval(function(){playLine(rows[13], rows[13], 13, bassAudio)}, calculateTempo());
+
+  } 
+
+  if (instrumentGroup === "electronic") {
+
+  rimshotID = setInterval(function(){playLine(rows[0], rows[0], 0, eclapAudio)}, calculateTempo());
+  cowbellID = setInterval(function(){playLine(rows[1], rows[1], 1, eshakerAudio)}, calculateTempo());
+  splashID = setInterval(function(){playLine(rows[2], rows[2], 2, ecymbalAudio)}, calculateTempo());
+  crashID = setInterval(function(){playLine(rows[3], rows[3], 3, eopenHHAudio)}, calculateTempo());
+  rideID = setInterval(function(){playLine(rows[4], rows[4], 4, eclosedHHAudio)}, calculateTempo());
+  openHHID = setInterval(function(){playLine(rows[5], rows[5], 5, esnare1Audio)}, calculateTempo());
+  closedHHID = setInterval(function(){playLine(rows[6], rows[6], 6, esnare2Audio)}, calculateTempo());
+  highTomID = setInterval(function(){playLine(rows[7], rows[7], 7, esnare3Audio)}, calculateTempo());
+  smallTomID = setInterval(function(){playLine(rows[8], rows[8], 8, etom1Audio)}, calculateTempo());
+  snareID = setInterval(function(){playLine(rows[9], rows[9], 9, etomanalogAudio)}, calculateTempo());
+  middleTomID = setInterval(function(){playLine(rows[10], rows[10], 10, etomlofiAudio)}, calculateTempo());
+  floorTomID = setInterval(function(){playLine(rows[11], rows[11], 11, ekick1Audio)}, calculateTempo());
+  hhFootID = setInterval(function(){playLine(rows[12], rows[12], 12, ekick2Audio)}, calculateTempo());
+  bassID = setInterval(function(){playLine(rows[13], rows[13], 13, ekick3Audio)}, calculateTempo());
+
+  } 
 
   rowIDs.push(rimshotID);
   rowIDs.push(cowbellID);

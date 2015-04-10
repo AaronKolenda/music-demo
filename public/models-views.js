@@ -61,7 +61,8 @@ var ResultView = Backbone.View.extend({
             "mouseup": "mouseUp",
             "change #tempo":  "tempoChanged",
             "hover #save":  "saveHover",
-            "change #timeSig": "changeTime"},
+            "change #timeSig": "changeTime",
+            "change #instrument": "changeInstrument"},
 
   tagName: "div",
 
@@ -73,7 +74,71 @@ var ResultView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(templates.beatInfo(this.model.viewDetails()));
+    if (this.model.get("instrument") === "acoustic") {
+      this.$el.html(templates.beatInfo(this.model.viewDetails()));
+    }
+    if (this.model.get("instrument") === "electronic") {
+      this.$el.html(templates.beatElectronicInfo(this.model.viewDetails()));
+    }  
+  },
+
+  changeInstrument: function() {
+    var instrument = $('#instrument').val();
+    console.log(instrument);
+    var newNotes = {};   //this will be the new model to render after instrument changed
+    newNotes.rimshotNotes = [];
+    newNotes.cowbellNotes = [];
+    newNotes.splashNotes = [];
+    newNotes.crashNotes = [];
+    newNotes.rideNotes = [];
+    newNotes.openHHNotes = [];
+    newNotes.closedHHNotes = [];
+    newNotes.highTomNotes = [];
+    newNotes.smallTomNotes = [];
+    newNotes.snareNotes = [];
+    newNotes.middleTomNotes = [];
+    newNotes.floorTomNotes = [];
+    newNotes.footHH = [];
+    newNotes.bassNotes = [];
+
+    var tableRows = $("#beat tr");
+
+      var counter = 0;
+    _.each(newNotes, function(eacharray, index) {
+      var tdsArray = $(tableRows[counter]);
+      counter++
+
+        _.each(tdsArray[0].children, function(element) {
+          $element = $(element);
+          if ($element.hasClass('selected') ) {
+            eacharray.push(true);
+          }
+          else {
+            eacharray.push(false);
+          }
+        });
+    });
+    newNotes.tempo = $('#tempo').val();
+    newNotes.beatName = $('#name').val();
+    newNotes.timeSig = $('#timeSig').val();
+    newNotes.instrument = $('#instrument').val();
+
+    var newModel = new Beat(newNotes);
+
+    this.model = newModel;
+
+    if (instrument === "acoustic") {
+      this.model.set("instrument", "acoustic");
+      this.render();
+      $("#instrument").val(this.model.get('instrument'));
+      return;
+    }
+    if (instrument === "electronic") {
+      this.model.set("instrument", "electronic");
+      this.render();
+      $("#instrument").val(this.model.get('instrument'));
+      return;
+    }
   },
 
   changeTime: function() {
@@ -116,6 +181,7 @@ var ResultView = Backbone.View.extend({
     newNotes.tempo = $('#tempo').val();
     newNotes.beatName = $('#name').val();
     newNotes.timeSig = $('#timeSig').val();
+    newNotes.instrument = $('#instrument').val();
 
     var newModel = new Beat(newNotes);
 
@@ -125,7 +191,7 @@ var ResultView = Backbone.View.extend({
 
     if (oldTime === "3") {
     _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(8).times(function(){ 
               value.push(false); 
             });
@@ -134,7 +200,7 @@ var ResultView = Backbone.View.extend({
     }
     if (oldTime === "5") {
     _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(12).times(function(){ 
               value.push(false); 
             });
@@ -143,7 +209,7 @@ var ResultView = Backbone.View.extend({
     }
     if (oldTime === "7") {
     _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(4).times(function(){ 
               value.push(false); 
             });
@@ -155,10 +221,11 @@ var ResultView = Backbone.View.extend({
 
     if ($("#timeSig").val() === "4") {
       this.render();
+      $("#instrument").val(this.model.get('instrument'));
     }
     if ($("#timeSig").val() === "3") {
       var newData = _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig" && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(8).times(function(){ 
               value.pop(); 
             });
@@ -167,7 +234,7 @@ var ResultView = Backbone.View.extend({
     }
     if ($("#timeSig").val() === "5") {
       var newData = _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(12).times(function(){ 
               value.pop(); 
             });
@@ -176,7 +243,7 @@ var ResultView = Backbone.View.extend({
     }
     if ($("#timeSig").val() === "7") {
       var newData = _.each(this.model.attributes, function(value, key) {
-          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying") {
+          if (key !== "beatName" && key !== "tempo" && key !== "timeSig"  && key !== "isCurrentlyPlaying" && key !== "instrument") {
             _(4).times(function(){ 
               value.pop(); 
             });
@@ -188,6 +255,7 @@ var ResultView = Backbone.View.extend({
 
     this.render();
     $("#timeSig").val(this.model.get('timeSig'));
+    $("#instrument").val(this.model.get('instrument'));
 
   },
 
@@ -252,7 +320,9 @@ var ResultView = Backbone.View.extend({
     });
     notes.tempo = $('#tempo').val();
     notes.beatName = $('#name').val(); 
-    notes.timeSig = $('#timeSig').val(); 
+    notes.timeSig = $('#timeSig').val();
+    notes.instrument = $('#instrument').val();
+
     console.log(notes);
 
     $.ajax({
@@ -288,7 +358,7 @@ playBeat: function() {
       return;
     }
     else {
-      play();
+      play(this.model.get("instrument"));
       $("#play-pause").html('<img src="/images/stop.png" class="stop"/>');
       this.model.set('isCurrentlyPlaying', true);
     }
@@ -337,6 +407,7 @@ var Router = Backbone.Router.extend({
 
     allNotes.beatName = "";
     allNotes.tempo = "100";
+    allNotes.instrument = "acoustic";
 
     var demoModel = new Beat(allNotes);
     var demoView = new BeatView(demoModel);
@@ -349,6 +420,7 @@ var Router = Backbone.Router.extend({
     var demoView = new BeatView(demoModel);
     $("#loaded-beat").append(demoView.$el);
     $("#timeSig").val(demoModel.get('timeSig'));
+    $("#instrument").val(demoModel.get('instrument'));
   },
 
   displayDemoPage: function(){
@@ -395,6 +467,7 @@ var Router = Backbone.Router.extend({
         var savedBeatView = new BeatView(savedBeatModel);
         $("#loaded-beat").append(savedBeatView.$el);
         $("#timeSig").val(savedBeatModel.get('timeSig'));
+        $("#instrument").val(savedBeatModel.get('instrument'));
       },
       error: function() {
         console.log("get failed");

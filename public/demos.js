@@ -9,6 +9,8 @@ Demos.bossaNova = {};
 Demos.trap = {};
 Demos.dubstep = {};
 Demos.house = {};
+Demos.blues = {};
+Demos.hipHop = {};
 
 //---------------Latin Demo----------------//
 
@@ -88,7 +90,7 @@ Demos.latin.smallTomNotes[22] = true;
 Demos.latin.beatName = "Latin Demo";
 Demos.latin.tempo = "100";
 Demos.latin.timeSig = "4";
-
+Demos.latin.instrument = "acoustic";
 
 //---------------Rock Demo----------------//
 
@@ -122,9 +124,9 @@ Demos.rock.bassNotes[8] = true;
 Demos.rock.bassNotes[10] = true;
 Demos.rock.bassNotes[16] = true;
 Demos.rock.bassNotes[18] = true;
-Demos.rock.bassNotes[22] = true;
 Demos.rock.bassNotes[24] = true;
 Demos.rock.bassNotes[26] = true;
+Demos.rock.bassNotes[29] = true;
 
 Demos.rock.closedHHNotes[2] = true;
 Demos.rock.closedHHNotes[4] = true;
@@ -135,24 +137,29 @@ Demos.rock.closedHHNotes[12] = true;
 Demos.rock.closedHHNotes[14] = true;
 Demos.rock.closedHHNotes[16] = true;
 Demos.rock.closedHHNotes[18] = true;
-Demos.rock.closedHHNotes[20] = true;
-Demos.rock.closedHHNotes[22] = true;
-Demos.rock.closedHHNotes[24] = true;
-Demos.rock.closedHHNotes[26] = true;
 
 Demos.rock.snareNotes[4] = true;
 Demos.rock.snareNotes[12] = true;
 Demos.rock.snareNotes[20] = true;
+Demos.rock.snareNotes[21] = true;
+Demos.rock.snareNotes[25] = true;
 Demos.rock.snareNotes[28] = true;
-Demos.rock.snareNotes[29] = true;
-Demos.rock.snareNotes[30] = true;
 Demos.rock.snareNotes[31] = true;
 
 Demos.rock.crashNotes[0] = true;
 
+Demos.rock.rideNotes[29] = true;
+
+Demos.rock.middleTomNotes[22] = true;
+Demos.rock.middleTomNotes[23] = true;
+
+Demos.rock.splashNotes[24] = true;
+Demos.rock.splashNotes[26] = true;
+
 Demos.rock.beatName = "Rock Demo";
 Demos.rock.tempo = "100";
 Demos.rock.timeSig = "4";
+Demos.rock.instrument = "acoustic";
 
 //---------------Jazz Demo----------------//
 
@@ -214,6 +221,7 @@ Demos.jazz.footHH[15] = true;
 Demos.jazz.beatName = "Jazz Demo";
 Demos.jazz.tempo = "80";
 Demos.jazz.timeSig = "3";
+Demos.jazz.instrument = "acoustic";
 
 
 //---------------Funk Demo----------------//
@@ -288,6 +296,7 @@ Demos.funk.openHHNotes[13] = true;
 Demos.funk.beatName = "Funk Demo";
 Demos.funk.tempo = "110";
 Demos.funk.timeSig = "4";
+Demos.funk.instrument = "acoustic";
 
 //---------------Metal Demo----------------//
 
@@ -370,6 +379,7 @@ Demos.metal.crashNotes[24] = true;
 Demos.metal.beatName = "Metal Demo";
 Demos.metal.tempo = "120";
 Demos.metal.timeSig = "4";
+Demos.metal.instrument = "acoustic";
 
 //---------------Punk Demo----------------//
 
@@ -447,6 +457,7 @@ Demos.punk.crashNotes[0] = true;
 Demos.punk.beatName = "Punk Demo";
 Demos.punk.tempo = "170";
 Demos.punk.timeSig = "4";
+Demos.punk.instrument = "acoustic";
 
 //---------------Bossa Nova Demo----------------//
 
@@ -534,6 +545,7 @@ Demos.bossaNova.smallTomNotes[23] = true;
 Demos.bossaNova.beatName = "Bossa Nova Demo";
 Demos.bossaNova.tempo = "65";
 Demos.bossaNova.timeSig = "4";
+Demos.bossaNova.instrument = "acoustic";
 
 //---------------Trap Demo----------------//
 
@@ -560,44 +572,53 @@ _.each(Demos.trap, function(element) {
       });
     })
 
-Demos.trap.closedHHNotes[0] = true;
-Demos.trap.closedHHNotes[4] = true;
-Demos.trap.closedHHNotes[6] = true;
+Demos.trap.footHH[24] = true;
+Demos.trap.footHH[28] = true;
+
 Demos.trap.closedHHNotes[10] = true;
 Demos.trap.closedHHNotes[11] = true;
-Demos.trap.closedHHNotes[13] = true;
-Demos.trap.closedHHNotes[14] = true;
-Demos.trap.closedHHNotes[15] = true;
-Demos.trap.closedHHNotes[18] = true;
-Demos.trap.closedHHNotes[24] = true;
-Demos.trap.closedHHNotes[27] = true;
-Demos.trap.closedHHNotes[30] = true;
+Demos.trap.closedHHNotes[12] = true;
 
-Demos.trap.floorTomNotes[0] = true;
-Demos.trap.floorTomNotes[14] = true;
+
+Demos.trap.highTomNotes[13] = true;
+Demos.trap.highTomNotes[14] = true;
+
 Demos.trap.floorTomNotes[19] = true;
-Demos.trap.floorTomNotes[29] = true;
 
+Demos.trap.splashNotes[0] = true;
+Demos.trap.splashNotes[3] = true;
 
-Demos.trap.snareNotes[4] = true;
-Demos.trap.snareNotes[12] = true;
-Demos.trap.snareNotes[20] = true;
+Demos.trap.rimshotNotes[26] = true;
+Demos.trap.rimshotNotes[29] = true;
 
+Demos.trap.rideNotes[1] = true;
+Demos.trap.rideNotes[2] = true;
+Demos.trap.rideNotes[16] = true;
+Demos.trap.rideNotes[17] = true;
+Demos.trap.rideNotes[18] = true;
+Demos.trap.rideNotes[20] = true;
+Demos.trap.rideNotes[22] = true;
+Demos.trap.rideNotes[24] = true;
+Demos.trap.rideNotes[27] = true;
+Demos.trap.rideNotes[30] = true;
 
-Demos.trap.rimshotNotes[17] = true;
+Demos.trap.openHHNotes[4] = true;
+Demos.trap.openHHNotes[5] = true;
+Demos.trap.openHHNotes[6] = true;
+Demos.trap.openHHNotes[7] = true;
+Demos.trap.openHHNotes[8] = true;
 
-Demos.trap.bassNotes[1] = true;
-Demos.trap.bassNotes[9] = true;
+Demos.trap.bassNotes[0] = true;
+Demos.trap.bassNotes[3] = true;
 Demos.trap.bassNotes[16] = true;
 Demos.trap.bassNotes[22] = true;
-Demos.trap.bassNotes[24] = true;
-Demos.trap.bassNotes[27] = true;
 Demos.trap.bassNotes[30] = true;
 
 
 Demos.trap.beatName = "Trap Demo";
 Demos.trap.tempo = "95";
 Demos.trap.timeSig = "4";
+Demos.trap.instrument = "electronic";
 
 //---------------Dubstep Demo----------------//
 
@@ -655,6 +676,7 @@ Demos.dubstep.middleTomNotes[30] = true;
 Demos.dubstep.beatName = "Dubstep Demo";
 Demos.dubstep.tempo = "137";
 Demos.dubstep.timeSig = "4";
+Demos.dubstep.instrument = "acoustic";
 
 //---------------House Demo----------------//
 
@@ -681,15 +703,17 @@ _.each(Demos.house, function(element) {
       });
     })
 
-Demos.house.closedHHNotes[2] = true;
-Demos.house.closedHHNotes[6] = true;
-Demos.house.closedHHNotes[10] = true;
-Demos.house.closedHHNotes[14] = true;
-Demos.house.closedHHNotes[18] = true;
-Demos.house.closedHHNotes[22] = true;
-Demos.house.closedHHNotes[26] = true;
+Demos.house.rideNotes[2] = true;
+Demos.house.rideNotes[6] = true;
+Demos.house.rideNotes[10] = true;
+Demos.house.rideNotes[14] = true;
+Demos.house.rideNotes[18] = true;
+Demos.house.rideNotes[22] = true;
+Demos.house.rideNotes[26] = true;
 
-Demos.house.openHHNotes[30] = true;
+Demos.house.splashNotes[0] = true;
+
+Demos.house.crashNotes[30] = true;
 
 Demos.house.bassNotes[0] = true;
 Demos.house.bassNotes[4] = true;
@@ -702,11 +726,143 @@ Demos.house.bassNotes[28] = true;
 Demos.house.bassNotes[30] = true;
 
 
-Demos.house.snareNotes[4] = true;
-Demos.house.snareNotes[12] = true;
-Demos.house.snareNotes[20] = true;
-Demos.house.snareNotes[28] = true;
+Demos.house.closedHHNotes[4] = true;
+Demos.house.closedHHNotes[12] = true;
+Demos.house.closedHHNotes[20] = true;
+Demos.house.closedHHNotes[28] = true;
 
 Demos.house.beatName = "House Demo";
 Demos.house.tempo = "125";
 Demos.house.timeSig = "4";
+Demos.house.instrument = "electronic";
+
+//---------------Blues Demo----------------//
+
+
+Demos.blues.rimshotNotes = [];
+Demos.blues.cowbellNotes = [];
+Demos.blues.splashNotes = [];
+Demos.blues.crashNotes = [];
+Demos.blues.rideNotes = [];
+Demos.blues.openHHNotes = [];
+Demos.blues.closedHHNotes = [];
+Demos.blues.highTomNotes = [];
+Demos.blues.smallTomNotes = [];
+Demos.blues.snareNotes = [];
+Demos.blues.middleTomNotes = [];
+Demos.blues.floorTomNotes = [];
+Demos.blues.footHH = [];
+Demos.blues.bassNotes = [];
+
+_.each(Demos.blues, function(element) {
+
+      _(24).times(function(){
+        element.push(false);
+      });
+    })
+
+Demos.blues.bassNotes[0] = true;
+Demos.blues.bassNotes[6] = true;
+Demos.blues.bassNotes[11] = true;
+Demos.blues.bassNotes[12] = true;
+Demos.blues.bassNotes[14] = true;
+Demos.blues.bassNotes[17] = true;
+Demos.blues.bassNotes[18] = true;
+Demos.blues.bassNotes[20] = true;
+
+Demos.blues.snareNotes[3] = true;
+Demos.blues.snareNotes[9] = true;
+Demos.blues.snareNotes[15] = true;
+Demos.blues.snareNotes[19] = true;
+Demos.blues.snareNotes[21] = true;
+Demos.blues.snareNotes[22] = true;
+Demos.blues.snareNotes[23] = true;
+
+Demos.blues.openHHNotes[19] = true;
+
+Demos.blues.closedHHNotes[0] = true;
+Demos.blues.closedHHNotes[2] = true;
+Demos.blues.closedHHNotes[3] = true;
+Demos.blues.closedHHNotes[5] = true;
+Demos.blues.closedHHNotes[6] = true;
+Demos.blues.closedHHNotes[8] = true;
+Demos.blues.closedHHNotes[9] = true;
+Demos.blues.closedHHNotes[11] = true;
+Demos.blues.closedHHNotes[12] = true;
+Demos.blues.closedHHNotes[13] = true;
+Demos.blues.closedHHNotes[14] = true;
+Demos.blues.closedHHNotes[15] = true;
+Demos.blues.closedHHNotes[16] = true;
+Demos.blues.closedHHNotes[17] = true;
+Demos.blues.closedHHNotes[18] = true;
+
+Demos.blues.beatName = "Blues Demo";
+Demos.blues.tempo = "50";
+Demos.blues.timeSig = "3";
+Demos.blues.instrument = "acoustic";
+
+//---------------Hip Hop Demo----------------//
+
+
+Demos.hipHop.rimshotNotes = [];
+Demos.hipHop.cowbellNotes = [];
+Demos.hipHop.splashNotes = [];
+Demos.hipHop.crashNotes = [];
+Demos.hipHop.rideNotes = [];
+Demos.hipHop.openHHNotes = [];
+Demos.hipHop.closedHHNotes = [];
+Demos.hipHop.highTomNotes = [];
+Demos.hipHop.smallTomNotes = [];
+Demos.hipHop.snareNotes = [];
+Demos.hipHop.middleTomNotes = [];
+Demos.hipHop.floorTomNotes = [];
+Demos.hipHop.footHH = [];
+Demos.hipHop.bassNotes = [];
+
+_.each(Demos.hipHop, function(element) {
+
+      _(32).times(function(){
+        element.push(false);
+      });
+    })
+
+Demos.hipHop.cowbellNotes[24] = true;
+Demos.hipHop.cowbellNotes[25] = true;
+Demos.hipHop.cowbellNotes[26] = true;
+Demos.hipHop.cowbellNotes[27] = true;
+Demos.hipHop.cowbellNotes[30] = true;
+Demos.hipHop.cowbellNotes[31] = true;
+
+Demos.hipHop.crashNotes[22] = true;
+
+Demos.hipHop.closedHHNotes[4] = true;
+Demos.hipHop.closedHHNotes[12] = true;
+Demos.hipHop.closedHHNotes[20] = true;
+Demos.hipHop.closedHHNotes[28] = true;
+
+Demos.hipHop.rideNotes[0] = true;
+Demos.hipHop.rideNotes[2] = true;
+Demos.hipHop.rideNotes[4] = true;
+Demos.hipHop.rideNotes[6] = true;
+Demos.hipHop.rideNotes[8] = true;
+Demos.hipHop.rideNotes[10] = true;
+Demos.hipHop.rideNotes[12] = true;
+Demos.hipHop.rideNotes[14] = true;
+Demos.hipHop.rideNotes[16] = true;
+Demos.hipHop.rideNotes[18] = true;
+Demos.hipHop.rideNotes[20] = true;
+
+Demos.hipHop.footHH[0] = true;
+Demos.hipHop.footHH[7] = true;
+Demos.hipHop.footHH[9] = true;
+Demos.hipHop.footHH[10] = true;
+Demos.hipHop.footHH[14] = true;
+Demos.hipHop.footHH[16] = true;
+
+
+
+Demos.hipHop.beatName = "Hip Hop Demo";
+Demos.hipHop.tempo = "100";
+Demos.hipHop.timeSig = "4";
+Demos.hipHop.instrument = "electronic";
+

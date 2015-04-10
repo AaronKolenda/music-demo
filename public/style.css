@@ -134,6 +134,7 @@ input {
 
 .controls {
 	width: 90%;
+  min-width: 1253px;
 	margin: auto;
 }
 
@@ -171,6 +172,10 @@ input {
   text-align: center;
 }
 
+.extra-width {
+  width: 262px;
+}
+
 .beat-wrapper {
 	text-align: center;
 }
@@ -186,7 +191,7 @@ input {
 
 .play-pause {
 	position: relative;
-	left: 30px;
+	left: 19px;
 }
 
 .play {
@@ -205,6 +210,10 @@ input {
 
 .play:hover, .stop:hover {
 	background-color: rgb(138, 185, 241);
+}
+
+.play-width {
+  width: 105px;
 }
 
 .result {
@@ -229,6 +238,10 @@ input {
   margin: auto;
 }
 
+.save-width {
+  width: 95px;
+}
+
 .selected {
   	background-color: rgb(102, 16, 16);
 }
@@ -249,6 +262,7 @@ input {
 	text-align: center;
 	margin-top: 40px;
 	width: 90%;
+  min-width: 1253px;
 	border-radius: 9px;
 	padding: 20px 10px;
 }
@@ -263,7 +277,6 @@ input {
   color: white;
   display: inline-block;
   margin: auto;
-  width: 20%;
 }
 
 .white-label input[type=text]{
