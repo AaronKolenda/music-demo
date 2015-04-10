@@ -66,12 +66,28 @@ td {
   border-radius: 3px;
 }
 
-td:nth-child(4n+4) {
-	border-right: 4px solid rgb(4, 46, 76);
+.four td:nth-child(4n+4) {
+	border-right: 5px solid blue;
 }
 
-td:nth-child(16) {
-	border-right: 4px solid blue;
+.four td:nth-child(16) {
+	border-right: 6px solid rgb(250, 120, 20);
+}
+
+.three td:nth-child(3n+3) {
+  border-right: 5px solid blue;
+}
+
+.three td:nth-child(12) {
+  border-right: 6px solid rgb(250, 120, 20);
+}
+
+.five td:nth-child(4n+4) {
+  border-right: 5px solid blue;
+}
+
+.seven td:nth-child(4n+4) {
+  border-right: 5px solid blue;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -134,7 +150,7 @@ input {
 
 .controls {
 	width: 90%;
-  min-width: 1253px;
+  min-width: 1273px;
 	margin: auto;
 }
 
@@ -262,7 +278,7 @@ input {
 	text-align: center;
 	margin-top: 40px;
 	width: 90%;
-  min-width: 1253px;
+  min-width: 1273px;
 	border-radius: 9px;
 	padding: 20px 10px;
 }

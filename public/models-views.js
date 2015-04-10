@@ -131,12 +131,46 @@ var ResultView = Backbone.View.extend({
       this.model.set("instrument", "acoustic");
       this.render();
       $("#instrument").val(this.model.get('instrument'));
+      $("#timeSig").val(this.model.get('timeSig'));
+          if (this.model.get('timeSig') === "3") {
+            $(".table-example").removeClass("four five seven");
+            $(".table-example").addClass("three");
+          }
+          if (this.model.get('timeSig') === "4") {
+            $(".table-example").removeClass("three five seven");
+            $(".table-example").addClass("four");
+          }
+          if (this.model.get('timeSig') === "5") {
+            $(".table-example").removeClass("four three seven");
+            $(".table-example").addClass("five");
+          }
+          if (this.model.get('timeSig') === "7") {
+            $(".table-example").removeClass("four three five");
+            $(".table-example").addClass("seven");
+          }
       return;
     }
     if (instrument === "electronic") {
       this.model.set("instrument", "electronic");
       this.render();
       $("#instrument").val(this.model.get('instrument'));
+      $("#timeSig").val(this.model.get('timeSig'));
+          if (this.model.get('timeSig') === "3") {
+            $(".table-example").removeClass("four five seven");
+            $(".table-example").addClass("three");
+          }
+          if (this.model.get('timeSig') === "4") {
+            $(".table-example").removeClass("three five seven");
+            $(".table-example").addClass("four");
+          }
+          if (this.model.get('timeSig') === "5") {
+            $(".table-example").removeClass("four three seven");
+            $(".table-example").addClass("five");
+          }
+          if (this.model.get('timeSig') === "7") {
+            $(".table-example").removeClass("four three five");
+            $(".table-example").addClass("seven");
+          }
       return;
     }
   },
@@ -256,6 +290,25 @@ var ResultView = Backbone.View.extend({
     this.render();
     $("#timeSig").val(this.model.get('timeSig'));
     $("#instrument").val(this.model.get('instrument'));
+
+    console.log(this.model.get('timeSig'));
+
+    if (this.model.get('timeSig') === "3") {
+      $(".table-example").removeClass("four five seven");
+      $(".table-example").addClass("three");
+    }
+    if (this.model.get('timeSig') === "4") {
+      $(".table-example").removeClass("three five seven");
+      $(".table-example").addClass("four");
+    }
+    if (this.model.get('timeSig') === "5") {
+      $(".table-example").removeClass("four three seven");
+      $(".table-example").addClass("five");
+    }
+    if (this.model.get('timeSig') === "7") {
+      $(".table-example").removeClass("four three five");
+      $(".table-example").addClass("seven");
+    }
 
   },
 
@@ -421,6 +474,22 @@ var Router = Backbone.Router.extend({
     $("#loaded-beat").append(demoView.$el);
     $("#timeSig").val(demoModel.get('timeSig'));
     $("#instrument").val(demoModel.get('instrument'));
+    if (demoModel.get('timeSig') === "3") {
+      $(".table-example").removeClass("four five seven");
+      $(".table-example").addClass("three");
+    }
+    if (demoModel.get('timeSig') === "4") {
+      $(".table-example").removeClass("three five seven");
+      $(".table-example").addClass("four");
+    }
+    if (demoModel.get('timeSig') === "5") {
+      $(".table-example").removeClass("four three seven");
+      $(".table-example").addClass("five");
+    }
+    if (demoModel.get('timeSig') === "7") {
+      $(".table-example").removeClass("four three five");
+      $(".table-example").addClass("seven");
+    }
   },
 
   displayDemoPage: function(){
@@ -468,6 +537,22 @@ var Router = Backbone.Router.extend({
         $("#loaded-beat").append(savedBeatView.$el);
         $("#timeSig").val(savedBeatModel.get('timeSig'));
         $("#instrument").val(savedBeatModel.get('instrument'));
+        if (savedBeatModel.get('timeSig') === "3") {
+      $(".table-example").removeClass("four five seven");
+      $(".table-example").addClass("three");
+    }
+    if (savedBeatModel.get('timeSig') === "4") {
+      $(".table-example").removeClass("three five seven");
+      $(".table-example").addClass("four");
+    }
+    if (savedBeatModel.get('timeSig') === "5") {
+      $(".table-example").removeClass("four three seven");
+      $(".table-example").addClass("five");
+    }
+    if (savedBeatModel.get('timeSig') === "7") {
+      $(".table-example").removeClass("four three five");
+      $(".table-example").addClass("seven");
+    }
       },
       error: function() {
         console.log("get failed");
