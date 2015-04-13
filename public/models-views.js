@@ -338,7 +338,7 @@ var ResultView = Backbone.View.extend({
       method: "POST",
       data: notes,
       success: function(data) {
-        var beatUrlString = ("localhost:3000/#/beat/" + data.id);
+        var beatUrlString = ("aaronkolenda.github.io/music-demo/public/beat/" + data.id);
         var resultView = new ResultView(beatUrlString);
         console.log(resultView);
         $('body').append(resultView.$el);
@@ -362,12 +362,12 @@ playBeat: function() {
         window.clearInterval(element);
       });
       this.model.set('isCurrentlyPlaying', false);
-      $("#play-pause").html('<img src="/images/play.png" class="play"/>');
+      $("#play-pause").html('<img src="/music-demo/public/images/play.png" class="play"/>');
       return;
     }
     else {
       play(this.model.get("instrument"));
-      $("#play-pause").html('<img src="/images/stop.png" class="stop"/>');
+      $("#play-pause").html('<img src="/music-demo/public/images/stop.png" class="stop"/>');
       this.model.set('isCurrentlyPlaying', true);
     }
   },
@@ -383,9 +383,9 @@ var Router = Backbone.Router.extend({
 
   routes: {
     "": "displayLanding",
-    "demos/:demo": "displayDemo",
-    "demopage": "displayDemoPage",
-    "beat/:id": "displaySavedBeat"
+    "music-demo/public/demos/:demo": "displayDemo",
+    "music-demo/public/demopage": "displayDemoPage",
+    "music-demo/public/beat/:id": "displaySavedBeat"
   },
 
   displayLanding: function(){
