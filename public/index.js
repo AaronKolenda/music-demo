@@ -292,5 +292,26 @@ var play = function(instrumentGroup) {
 
 }
 
+var resetMeasureDivide = function(timeSig) {
+
+if (timeSig === "3") {
+            $(".table-example").removeClass("four five seven");
+            $(".table-example").addClass("three");
+          }
+          if (timeSig === "4") {
+            $(".table-example").removeClass("three five seven");
+            $(".table-example").addClass("four");
+          }
+          if (timeSig === "5") {
+            $(".table-example").removeClass("four three seven");
+            $(".table-example").addClass("five");
+          }
+          if (timeSig === "7") {
+            $(".table-example").removeClass("four three five");
+            $(".table-example").addClass("seven");
+          }
+
+}
+
 
 
