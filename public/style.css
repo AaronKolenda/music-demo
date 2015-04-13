@@ -323,17 +323,8 @@ input {
     padding-bottom: 0px;
   }
 
-  .beat-wrapper {
-    text-align: left;
-  }
-
   .play-pause {
     left: 0px;
-  }
-
-  .white-label {
-    margin-left: 30px;
-    display: block;
   }
 
   header {
@@ -366,11 +357,15 @@ input {
   }
 
   .controls {
-    background-color: rgba(50,50,50, 0.5);
-    padding-top: 20px;
+    background-color: rgba(0,0,0, 0.8);
+    padding: 20px;
     padding-bottom: 10px;
     border-radius: 9px;
     min-width: 0px;
+  }
+
+  .table-example {
+    background: rgba(0,0,0,0.8);
   }
 
 
