@@ -8,7 +8,7 @@ body {
 	font-size: 0px;
 	margin: 0px;
 	padding: 0px;
-	background-image: url(/images/drumset2.jpg);
+	background-image: url(/music-demo/public/images/drumset2.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 }
