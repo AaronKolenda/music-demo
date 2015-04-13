@@ -364,6 +364,10 @@ input {
     min-width: 0px;
   }
 
+  .background-cover .table-example {
+    background: rgba(0,0,0,0.8);
+  }
+
   .table-example {
     background: rgba(0,0,0,0.8);
   }
