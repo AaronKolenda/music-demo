@@ -250,51 +250,43 @@ _.each(Demos.funk, function(element) {
     })
 
 Demos.funk.bassNotes[0] = true;
-Demos.funk.bassNotes[8] = true;
-Demos.funk.bassNotes[13] = true;
-Demos.funk.bassNotes[15] = true;
+Demos.funk.bassNotes[2] = true;
+Demos.funk.bassNotes[10] = true;
+Demos.funk.bassNotes[11] = true;
 Demos.funk.bassNotes[16] = true;
-Demos.funk.bassNotes[24] = true;
-Demos.funk.bassNotes[31] = true;
+Demos.funk.bassNotes[18] = true;
+Demos.funk.bassNotes[26] = true;
 
 Demos.funk.rideNotes[0] = true;
-Demos.funk.rideNotes[31] = true;
+Demos.funk.rideNotes[2] = true;
+Demos.funk.rideNotes[4] = true;
+Demos.funk.rideNotes[6] = true;
+Demos.funk.rideNotes[8] = true;
+Demos.funk.rideNotes[10] = true;
+Demos.funk.rideNotes[12] = true;
+Demos.funk.rideNotes[14] = true;
+Demos.funk.rideNotes[16] = true;
+Demos.funk.rideNotes[18] = true;
+Demos.funk.rideNotes[20] = true;
+Demos.funk.rideNotes[22] = true;
+Demos.funk.rideNotes[24] = true;
+Demos.funk.rideNotes[28] = true;
+Demos.funk.rideNotes[30] = true;
 
-Demos.funk.smallTomNotes[30] = true;
+Demos.funk.splashNotes[26] = true;
 
-Demos.funk.snareNotes[1] = true;
 Demos.funk.snareNotes[4] = true;
-Demos.funk.snareNotes[6] = true;
 Demos.funk.snareNotes[7] = true;
 Demos.funk.snareNotes[9] = true;
 Demos.funk.snareNotes[12] = true;
-Demos.funk.snareNotes[17] = true;
+Demos.funk.snareNotes[15] = true;
 Demos.funk.snareNotes[20] = true;
-Demos.funk.snareNotes[22] = true;
 Demos.funk.snareNotes[23] = true;
 Demos.funk.snareNotes[25] = true;
-Demos.funk.snareNotes[28] = true;
-Demos.funk.snareNotes[29] = true;
-
-Demos.funk.closedHHNotes[2] = true;
-Demos.funk.closedHHNotes[3] = true;
-Demos.funk.closedHHNotes[5] = true;
-Demos.funk.closedHHNotes[8] = true;
-Demos.funk.closedHHNotes[10] = true;
-Demos.funk.closedHHNotes[11] = true;
-Demos.funk.closedHHNotes[16] = true;
-Demos.funk.closedHHNotes[18] = true;
-Demos.funk.closedHHNotes[19] = true;
-Demos.funk.closedHHNotes[21] = true;
-Demos.funk.closedHHNotes[24] = true;
-Demos.funk.closedHHNotes[26] = true;
-Demos.funk.closedHHNotes[27] = true;
-
-Demos.funk.openHHNotes[13] = true;
-
+Demos.funk.snareNotes[30] = true;
 
 Demos.funk.beatName = "Funk Demo";
-Demos.funk.tempo = "110";
+Demos.funk.tempo = "136";
 Demos.funk.timeSig = "4";
 Demos.funk.instrument = "acoustic";
 
