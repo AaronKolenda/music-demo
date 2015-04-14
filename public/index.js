@@ -5,9 +5,6 @@
   Backbone.history.start()
 });
 
-//var notesFromServer;
-//var savedBeat;
-
 var calculateTempo = function() {
   var bpm = $('#tempo').val();
   var sixteenthPerMin = bpm * 4;
@@ -19,8 +16,7 @@ var turnOffHighlight = function(td) {
   td.removeClass('highlight');
 }
 
-//bring in all the audio files with howl.js
-//acoustic drums
+// Add each sample using Howl.js
 
 var crashAudio = new Howl({
   urls: ['samples/crash.mp3'],
@@ -79,7 +75,7 @@ var highTomAudio = new Howl({
   volume: 0.7
 });
 
-//electronic drums
+//Electronic Drums
 
 var eclapAudio = new Howl({
   urls: ['samples/electronic/eclap.mp3'],
@@ -156,6 +152,8 @@ var getTemplates = function(){
 
 }
 
+// This loops through all the tds in a row and plays a passed in sound if the td is selected
+
 var playLine = function(currentTD, originalTD, tempNum, audio) {
   currentTD = temp[tempNum];
   if (currentTD[0].nextElementSibling === null) {
@@ -187,6 +185,10 @@ var temp;
 var rowIDs = [];
 
 var currentlyPlaying = false;
+
+// This calls the playLine function on all the rows at once. It could be refractored to have better variable
+// names and use less code. Right now if you play a beat that uses electronic drums, the variable names are
+// still the acoustic drums, but this is unbeknownst to the user. 
 
 var play = function(instrumentGroup) {
 
@@ -291,6 +293,8 @@ var play = function(instrumentGroup) {
   currentlyPlaying = true;
 
 }
+
+// This changes the dividing line between measures depending on the time signature
 
 var resetMeasureDivide = function(timeSig) {
 

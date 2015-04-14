@@ -15,15 +15,15 @@ body {
 
 button {
   height: 39px;
-    padding: 6px 12px;
-    background-color: white;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 14px;
-    line-height: 14px;
-    color: rgb(4, 46, 76);
-    border: 2px solid rgb(138, 185, 241);
-    border-radius: 4px;
+  padding: 6px 12px;
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 14px;
+  color: rgb(4, 46, 76);
+  border: 2px solid rgb(138, 185, 241);
+  border-radius: 4px;
 }
 
 h1 {
@@ -49,6 +49,31 @@ header a:hover {
   color: white;
 }
 
+input {
+  height: 25px;
+  padding: 6px 12px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #555555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+/* Below gets rid of the number arrows on number input, it messes with events in the view. */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+select {
+  font-size: 16px;
+}
+
 table {
   display: inline-block;
   vertical-align: top;
@@ -65,6 +90,8 @@ td {
   height: 16px;
   border-radius: 3px;
 }
+
+/* Below are the classes that divide the table differently based on time signature*/
 
 .four td:nth-child(4n+4) {
   border-right: 5px solid blue;
@@ -90,29 +117,9 @@ td {
   border-right: 5px solid blue;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-select {
-  font-size: 16px;
-}
+/*----------------------------*/
 
 
-input {
-  height: 25px;
-  padding: 6px 12px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 14px;
-  color: #555555;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
 
 .background-cover {
   background: rgba(0,0,0,0.55);
@@ -125,13 +132,16 @@ input {
   background: rgba(0,0,0,0.7);
 }
 
+.beat-wrapper {
+  text-align: center;
+}
+
 .block {
   display: block;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
   margin-bottom: 0px;
-
 }
 
 .center {
@@ -192,9 +202,7 @@ input {
   width: 262px;
 }
 
-.beat-wrapper {
-  text-align: center;
-}
+
 
 .loaded-beat {
   margin: auto;
@@ -203,11 +211,6 @@ input {
 .no-margin {
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-.play-pause {
-  position: relative;
-  left: 19px;
 }
 
 .play {
@@ -226,6 +229,11 @@ input {
 
 .play:hover, .stop:hover {
   background-color: rgb(138, 185, 241);
+}
+
+.play-pause {
+  position: relative;
+  left: 19px;
 }
 
 .play-width {
@@ -250,7 +258,7 @@ input {
 
 .result input {
   display: block;
-  width: 30%;
+  width: 55%;
   margin: auto;
 }
 
@@ -259,7 +267,13 @@ input {
 }
 
 .selected {
-    background-color: rgb(102, 16, 16);
+  background-color: rgb(102, 16, 16);
+}
+
+/* Highlight only works if it is defined after selected it seeems */
+
+.highlight {
+  background-color: orange;
 }
 
 .stop {
@@ -283,10 +297,6 @@ input {
   padding: 20px 10px;
 }
 
-.highlight {
-  background-color: orange;
-}
-
 .white-label {
   font-size: 20px;
   font-family: verdana, sans-serif;
@@ -306,7 +316,7 @@ input {
 }
 
 #widget {
-    text-align: center;
+  text-align: center;
 }
 
 @media (min-width: 1400px) {
@@ -315,17 +325,11 @@ input {
   }
 }
 
-@media (max-width: 1250px) {
-  .background-cover {
-    background: none;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 0px;
-  }
+/*Below is for smaller screens. It isn't completely responsive because the table of notes 
+must remain the same size to be usable. The user would only have to scroll sideways to see the table,
+but at least everything else should look alright.*/ 
 
-  .play-pause {
-    left: 0px;
-  }
+@media (max-width: 1250px) {
 
   header {
     text-align: center;
@@ -350,6 +354,17 @@ input {
     border-radius: 5px;
   }
 
+  .background-cover {
+    background: none;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0px;
+  }
+
+  .background-cover .table-example {
+    background: rgba(0,0,0,0.8);
+  }
+
   .center-link {
     background: rgb(4, 46, 76);
     padding: 8px;
@@ -364,13 +379,12 @@ input {
     min-width: 0px;
   }
 
-  .background-cover .table-example {
-    background: rgba(0,0,0,0.8);
+  .play-pause {
+    left: 0px;
   }
 
   .table-example {
     background: rgba(0,0,0,0.8);
   }
-
 
 }

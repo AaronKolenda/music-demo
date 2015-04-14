@@ -82,7 +82,11 @@ var ResultView = Backbone.View.extend({
     }  
   },
 
+  // Below makes the current beat into a model and then renders that model's view with new instruments
+  // Some of this can be refractored because both changeInstrument and changeTime use that same process
+
   changeInstrument: function() {
+
     var instrument = $('#instrument').val();
     console.log(instrument);
     var newNotes = {};   //this will be the new model to render after instrument changed
@@ -130,7 +134,7 @@ var ResultView = Backbone.View.extend({
     if (instrument === "acoustic") {
       this.model.set("instrument", "acoustic");
       this.render();
-      $("#timeSig").val(this.model.get('timeSig'));
+      $("#timeSig").val(this.model.get('timeSig'));      
       $("#instrument").val(this.model.get('instrument'));
       resetMeasureDivide(this.model.get('timeSig'));
       return;
@@ -267,6 +271,8 @@ var ResultView = Backbone.View.extend({
 
   },
 
+  //the following mouse events make it so that the user can click and drag to create notes
+
   mouseDown: function(ev) {
     ev.preventDefault();
     $(ev.currentTarget).toggleClass('selected');
@@ -388,7 +394,7 @@ var Router = Backbone.Router.extend({
     "beat/:id": "displaySavedBeat"
   },
 
-  displayLanding: function(){
+  displayLanding: function(){     //displays a blank beat table
     $("#loaded-beat").html("");
     var allNotes = {};
     allNotes.rimshotNotes = [];
@@ -422,7 +428,7 @@ var Router = Backbone.Router.extend({
     $("#loaded-beat").append(demoView.$el);
   },
 
-  displayDemo: function(demo){
+  displayDemo: function(demo){            //displays a specific demo
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos[demo]);
     var demoView = new BeatView(demoModel);
@@ -432,7 +438,7 @@ var Router = Backbone.Router.extend({
     resetMeasureDivide(demoModel.get('timeSig'));
   },
 
-  displayDemoPage: function(){
+  displayDemoPage: function(){          //displays the page with all demos
     $("#loaded-beat").html("");
     var demoPageView = new DemoView;
     $("#loaded-beat").append(demoPageView.$el);
@@ -444,7 +450,8 @@ var Router = Backbone.Router.extend({
       method: "GET",
       success: function(data) {
 
-        //this converts the strings that were stored back into booleans
+        //this converts the strings that were stored back into booleans in order to display the saved beat
+
         var newData = _.each(data, function(value, key) {
 
           if (key !== "beatName" && key !== "tempo") {
