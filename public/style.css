@@ -32,7 +32,7 @@ h1 {
 
 header {
   text-align: center;
-  font-family: Verdana, sans-serif;
+  font-family: 'Cantarell', sans-serif;
   font-size: 18px;
   color: white;
   background: linear-gradient(rgb(4, 46, 76), rgba(0,0,0,0.01));
@@ -299,7 +299,7 @@ td {
 
 .white-label {
   font-size: 20px;
-  font-family: verdana, sans-serif;
+  font-family: 'Cantarell', sans-serif;
   color: white;
   display: inline-block;
   margin: auto;
