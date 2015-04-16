@@ -344,7 +344,7 @@ var ResultView = Backbone.View.extend({
       method: "POST",
       data: notes,
       success: function(data) {
-        var beatUrlString = ("drumchum.herokuapp.com//#/beat/" + data.id);
+        var beatUrlString = ("drumchum.herokuapp.com/#/beat/" + data.id);
         var resultView = new ResultView(beatUrlString);
         console.log(resultView);
         $('body').append(resultView.$el);
