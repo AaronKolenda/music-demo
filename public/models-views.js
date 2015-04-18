@@ -300,8 +300,7 @@ var ResultView = Backbone.View.extend({
     forceStop(this.model);
     event.preventDefault()
     
-    if (this.model.get('tempo') < 0 || this.model.get('tempo') > 400) {
-      alert("you must chose a tempo in between 1 and 400");
+    if (checkTempo(this.model) === false) {
       return;
     }
 
@@ -365,8 +364,7 @@ var ResultView = Backbone.View.extend({
 },
 
 playBeat: function() {
-    if (this.model.get('tempo') < 0 || this.model.get('tempo') > 400) {
-      alert("you must chose a tempo in between 1 and 400");
+    if (checkTempo(this.model) === false) {
       return;
     }
 

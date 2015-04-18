@@ -330,5 +330,17 @@ var forceStop = function(model) {
 
 }
 
+var checkTempo = function(model) {
+  if (model.get('tempo') < 1 || model.get('tempo') > 250 || isPositiveInteger(model.get('tempo')) === false) {
+        alert("you must chose a tempo in between 1 and 250");
+        return false;
+      }
+      return true;
+}
+
+var isPositiveInteger = function(n) {
+    return n >>> 0 === parseFloat(n);
+}
+
 
 
