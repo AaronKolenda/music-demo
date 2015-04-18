@@ -3,6 +3,7 @@
   getTemplates();
   var router = new Router;
   Backbone.history.start()
+  
 });
 
 var calculateTempo = function() {
@@ -314,6 +315,18 @@ if (timeSig === "3") {
             $(".table-example").removeClass("four three five");
             $(".table-example").addClass("seven");
           }
+
+}
+
+//this is for forcing a beat to stop playing when the user clicks something other than stop, like the link to
+//the demo page
+
+var forceStop = function(model) {
+  if (model.get('isCurrentlyPlaying') === true) {
+      _.each(rowIDs, function(element) {
+        window.clearInterval(element);
+      });
+    }
 
 }
 

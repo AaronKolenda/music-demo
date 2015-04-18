@@ -1,3 +1,5 @@
+ var views = [];
+
  var Beat  = Backbone.Model.extend({
 
     defaults: {
@@ -87,6 +89,8 @@ var ResultView = Backbone.View.extend({
 
   changeInstrument: function() {
 
+    forceStop(this.model);
+
     var instrument = $('#instrument').val();
     console.log(instrument);
     var newNotes = {};   //this will be the new model to render after instrument changed
@@ -150,6 +154,8 @@ var ResultView = Backbone.View.extend({
   },
 
   changeTime: function() {
+
+    forceStop(this.model);
 
     var oldTime = this.model.get('timeSig');
 
@@ -291,6 +297,7 @@ var ResultView = Backbone.View.extend({
   },
 
   save: function(ev) {
+    forceStop(this.model);
     event.preventDefault()
     
     if (this.model.get('tempo') < 0 || this.model.get('tempo') > 400) {
@@ -425,14 +432,17 @@ var Router = Backbone.Router.extend({
 
     var demoModel = new Beat(allNotes);
     var demoView = new BeatView(demoModel);
-    $("#loaded-beat").append(demoView.$el);
+    views.push(demoView);
+    $("#loaded-beat").append(views[0].$el);
   },
 
   displayDemo: function(demo){            //displays a specific demo
     $("#loaded-beat").html("");
     var demoModel = new Beat(Demos[demo]);
     var demoView = new BeatView(demoModel);
-    $("#loaded-beat").append(demoView.$el);
+    views.length = 0;
+    views.push(demoView);
+    $("#loaded-beat").append(views[0].$el);
     $("#timeSig").val(demoModel.get('timeSig'));
     $("#instrument").val(demoModel.get('instrument'));
     resetMeasureDivide(demoModel.get('timeSig'));
@@ -440,6 +450,7 @@ var Router = Backbone.Router.extend({
 
   displayDemoPage: function(){          //displays the page with all demos
     $("#loaded-beat").html("");
+    forceStop(views[0].model);
     var demoPageView = new DemoView;
     $("#loaded-beat").append(demoPageView.$el);
   },
@@ -481,7 +492,9 @@ var Router = Backbone.Router.extend({
         $("#loaded-beat").html("");
         var savedBeatModel = new Beat(data);
         var savedBeatView = new BeatView(savedBeatModel);
-        $("#loaded-beat").append(savedBeatView.$el);
+        views.length = 0;
+        views.push(savedBeatView);
+        $("#loaded-beat").append(views[0].$el);
         $("#timeSig").val(savedBeatModel.get('timeSig'));
         $("#instrument").val(savedBeatModel.get('instrument'));
         resetMeasureDivide(savedBeatModel.get('timeSig'));
